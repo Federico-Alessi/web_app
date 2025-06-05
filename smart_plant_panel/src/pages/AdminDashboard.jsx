@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import AddPlant from '../Components/AddPlant';
 
 
 const AdminDashboard = () => {
@@ -17,6 +18,9 @@ const AdminDashboard = () => {
     return (
         <div>
             <h1>admin dashboard</h1>
+            <div>
+                <AddPlant></AddPlant>
+            </div>
         </div>
     );
 };

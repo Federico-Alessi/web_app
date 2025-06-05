@@ -67,21 +67,23 @@ const Login = () => {
             <h1>Login</h1>
             <form onSubmit={HandleSubmit}>
                 <label>
-                    username: <input
+                    username: <br/><input
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
                     />
                 </label>
+                <br/>
                 <label>
-                    email: <input
+                    email: <br/><input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                 </label>
+                <br/>
                 <button type="submit">Login</button>
             </form>
         </div>

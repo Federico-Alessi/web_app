@@ -19,10 +19,10 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: green;
+  color: #04A777;;
 }
 a.active {
-  color: green;
+  color: #04A777;
 }
 
 body {
@@ -55,6 +55,19 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+label {
+  margin: 5px;
+  display: inline-block;
+  width: 50%;
+}
+input, select, textarea {
+  width: 100%;
+}
+
+img {
+  margin: 0px auto;
 }
 
 @media (prefers-color-scheme: light) {
