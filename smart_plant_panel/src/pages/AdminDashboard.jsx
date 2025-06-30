@@ -1,10 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import AddPlant from '../Components/AddPlant';
 
 
 const AdminDashboard = () => {
     const isAdmin = useSelector((state) => state.user.isAdmin);
+    const [adminAction, setAdminAction] = useState("");
+
+    const handleDropdownChange = (e) => {
+        setAdminAction(e.target.value);
+    }
 
     if (!isAdmin) {
         return (
@@ -19,8 +25,13 @@ const AdminDashboard = () => {
         <div>
             <h1>admin dashboard</h1>
             <div>
-                
-                <AddPlant></AddPlant>
+                <select onChange={handleDropdownChange} defaultValue="">
+                    <option value="" disabled>Choose an operation</option>
+                    <option value="addPlant"> Add a new plant</option>
+                    <option value="removePlant">Remove a plant</option>
+                </select>
+                { adminAction == "addPlant" && <AddPlant />}
+                { adminAction == "removePlant" && <p>Placeholder</p>}
             </div>
         </div>
     );

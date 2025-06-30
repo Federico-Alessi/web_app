@@ -82,3 +82,14 @@ img {
     background-color: #f9f9f9;
   }
 }
+
+table {
+  text-align: left;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+td, th {
+  border-bottom: 1px solid #1a1a1a;
+}

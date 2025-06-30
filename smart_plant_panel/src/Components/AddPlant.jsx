@@ -11,27 +11,46 @@ const AddPlant = () => {
     })
     //handles user changes
     const handleChange = (e) =>{
-        const { name, value} = e.target
-        setNewPlant({...newPlant, [name]: value})
+        const { name, value, type, files} = e.target
+        if (type== "file" && files[0]) {
+            setNewPlant({...newPlant, image: URL.createObjectURL(files[0]) })
+        } else {
+            setNewPlant({...newPlant, [name]: value})
+        }
     }
     //passes the new plant to the parent of AddPlant
-    const handleNewPlant = (e) =>{
+    const handleNewPlant = async (e) =>{
         e.preventDefault()
-        const plant = {...newPlant, id: Date.now()}
-        setNewPlant({
-            id: null,
-            image: "600x400.png",
-            plantName: "",
-            category: "",
-            description: ""
-        })
-
+        const plant = {...newPlant, id: Date.now()};
+        try {
+            const response = await fetch("http://localhost:5000/plants", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(plant)
+            });
+            if (response.ok) {
+                alert("plant added!");
+                setNewPlant({
+                    id: null,
+                    image: "600x400.png",
+                    plantName: "",
+                    category: "",
+                    description: ""
+                })
+            } else {
+                alert("something went wrong!")
+            }
+        } catch {
+            alert ("Failed to connect to server.")
+        }
     }
     return(
         <form onSubmit={handleNewPlant}>
             <label>
                 Picture: <br/>
-                <img src={newPlant.image} alt="600x600" style={{ width: "100%", maxWidth: "600px" }}/>
+                <img src={newPlant.image} alt="600x400" style={{ width: "100%", maxWidth: "600px" }}/>
                 <br/><input
                     name="image"
                     type="file"
@@ -50,6 +69,7 @@ const AddPlant = () => {
             <label>
                 Plant category: <br/>
                     <select
+                        name="category"
                         value={newPlant.category}
                         onChange={handleChange}
                         required>
@@ -62,11 +82,14 @@ const AddPlant = () => {
             <br/>
             <label>
                 Plant Description: <br/><textarea
+                    name="description"
                     rows="10"
                     value={newPlant.description}
                     onChange={handleChange}
                     required/>
             </label>
+            <br></br>
+            <button type="submit">Add</button>
         
         </form>
     )
