@@ -1,25 +1,24 @@
 const initialState = {
     isAdmin: false,
-    username: null
+    username: null,
+    email: null
 }
 
 const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "admin/toggle":
-            return {
-                ...state,
-                isAdmin: state.isAdmin=== false ? true : false
-            }
-        case "user/logout":
+        case "LOGOUT":
             return {
                 ...state,
                 isAdmin: state.isAdmin = false,
                 username: null
             }
-        case "user/setUser":
+        case "LOGIN":
+            console.log(action.payload)
             return {
                 ...state,
-                username: action.payload
+                isAdmin: action.payload.isAdmin,
+                username: action.payload.username,
+                email: action.payload.email,
             }
         default:
             return state;

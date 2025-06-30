@@ -19,6 +19,7 @@ const AdminDashboard = () => {
         <div>
             <h1>admin dashboard</h1>
             <div>
+                
                 <AddPlant></AddPlant>
             </div>
         </div>

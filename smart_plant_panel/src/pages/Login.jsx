@@ -1,29 +1,34 @@
 import React from "react";
-import { useState } from "react";
+import { useState,  useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { toggleAdmin, setUser } from "../redux/LoginActions";
+import { LogIn } from "../redux/LoginActions";
+import { useNavigate } from "react-router";
 
 const Login = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const isLogged = useSelector((state) => state.user.username)
     const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
+    const [password, setpassword] = useState("");
+
+    useEffect(()=> {
+        if (isLogged) {
+            navigate("/");
+        }
+    }, [isLogged, navigate])
 
     // Handle form submission
     function HandleSubmit(e) {
         e.preventDefault();
 
         let emailOk = false;
-        let usernameOk = false;
-        let isAdmin = false;
+        let passwordOk = false;
 
         // Check email
         if (!email) {
             alert("Please enter a valid email address.");
 
-        } else if (email === "admin@admin.com") {
-            emailOk = true;
-            isAdmin = true;
-            
         } else if (!/^\S+@\S+\.\S+$/.test(email)) {
             alert("Please enter a valid email address.");
             return
@@ -32,31 +37,24 @@ const Login = () => {
             emailOk = true;
         }
 
-        // Check username
-        if (!username) {
-            alert("Please enter a valid username.");
+        // Check password
+        if (!password) {
+            alert("Please enter a valid password.");
             return
 
-        } else if (!/^[a-zA-Z0-9]+$/.test(username)) {
-            alert("Username is invalid.");
+        } else if (!/^[a-zA-Z0-9]+$/.test(password)) {
+            alert("password is invalid.");
             return
 
         } else {
-            usernameOk = true;
+            passwordOk = true;
         }
 
         // dispatch actions
-        if (usernameOk && emailOk && isAdmin) {
-            dispatch(toggleAdmin());
-            dispatch(setUser(username));
-            alert("Login successful!");
-            window.location.href = "/"
-        } else if (usernameOk && emailOk && !isAdmin) {
-            dispatch(setUser(username));
-            alert("Login successful!");
-            window.location.href = "/"
+        if (passwordOk && emailOk) {
+            dispatch(LogIn(email, password));
         } else {
-            alert("Please enter a valid username and email address.");
+            alert("Please enter a valid password and email address.");
         }
 
 
@@ -67,19 +65,19 @@ const Login = () => {
             <h1>Login</h1>
             <form onSubmit={HandleSubmit}>
                 <label>
-                    username: <br/><input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                </label>
-                <br/>
-                <label>
                     email: <br/><input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
+                        />
+                </label>
+                <br/>
+                <label>
+                    password: <br/><input
+                        type="text"
+                        value={password}
+                        onChange={(e) => setpassword(e.target.value)}
                         required
                     />
                 </label>

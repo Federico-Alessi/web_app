@@ -5,7 +5,7 @@ const FetchPlants = () => {
 
     useEffect(() =>{
         const fetchData = async () =>{
-            const response = await fetch('http://localhost:5000/plants')
+            const response = await fetch(`http://localhost:5000/plants`)
             const result = await response.json()
             console.log(result)
             setPlants(result)

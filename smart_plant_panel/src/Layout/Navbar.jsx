@@ -1,11 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Navigate, NavLink, useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { logOut } from "../redux/LoginActions";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isAdmin = useSelector((state) => state.user.isAdmin);
   const isLogged = useSelector((state) => state.user.username);
 
@@ -45,7 +46,7 @@ const Navbar = () => {
         <div>
           <button
             onClick={() => {
-              window.location.href = "/login";
+              navigate("/login");
             }}
           >
             Login
