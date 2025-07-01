@@ -6,14 +6,14 @@ const BrowsePlants = () => {
     const [selectedPlant, setSelectedPlant] = useState(null)
     return (
         <div>
-            <h1>browse</h1>
+            <br/>
             {selectedPlant ? (
                 <div>
-                <button onClick={() => setSelectedPlant(null)}>Back</button>
+                <button onClick={() => setSelectedPlant(null)}>↩</button>
                 <Plant {...selectedPlant} />
                 </div>
             ) : (
-                <FetchPlants onSelectPlant={setSelectedPlant} />)}
+                <FetchPlants onSelectPlant={setSelectedPlant}/>)}
         </div>
     );
 };

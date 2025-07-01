@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const AddPlant = () => {
     const [newPlant, setNewPlant] = useState({
-        id: null,
+        id: "",
         image: "600x400.png",
         plantName: "",
         category: "",
@@ -21,7 +21,7 @@ const AddPlant = () => {
     //passes the new plant to the parent of AddPlant
     const handleNewPlant = async (e) =>{
         e.preventDefault()
-        const plant = {...newPlant, id: Date.now()};
+        const plant = { ...newPlant, id: Date.now().toString() };
         try {
             const response = await fetch("http://localhost:5000/plants", {
                 method: "POST",

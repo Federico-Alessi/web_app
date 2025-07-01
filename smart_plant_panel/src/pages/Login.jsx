@@ -30,7 +30,7 @@ const Login = () => {
             alert("Please enter a valid email address.");
 
         } else if (!/^\S+@\S+\.\S+$/.test(email)) {
-            alert("Please enter a valid email address.");
+            alert("Email address is invalid.");
             return
 
         } else {

@@ -1,25 +1,25 @@
 {
   "plants": [
     {
-      "id": "1",
-      "image": "600x600.png",
+      "id": "1751403623050",
+      "image": "public/images/Monstera_adansonii.jpg",
       "plantName": "Monstera Adansonii",
       "category": "greenplant",
-      "description": "Tropical plant from south america. This indoor plant thrives moderate to hot and highly humid climates."
+      "description": "Monstera Adansonii is a tropical plant from the monstera family.\nIt is similar to her sister, the Monstera Deliciosa, but it features smaller leaves.\nMonstera Adansonii is a perfect plant for beginners."
     },
     {
-      "id": "2",
-      "image": "600x600.png",
+      "id": "1751403751087",
+      "image": "public/images/Pilea_peperomioides.jpg",
+      "plantName": "Pilea Peperomioides",
+      "category": "greenplant",
+      "description": "Pilea Peperomioides is a green plant typically from China.\nIt requires a well drained soil and loves a partial shade.\nPilea Peperomioides can be reproduced either by propagation or by root division."
+    },
+    {
+      "id": "1751407338945",
+      "image": "600x400.png",
       "plantName": "Gaillardia",
       "category": "flower",
       "description": "Gaillardia is a perennial flower plant. from may to september this plant grows flowers similar to daisies, but in colors ranging from yellow, to red and brown. Impollinators love them."
-    },
-    {
-      "id": 1751294260194,
-      "image": "blob:http://localhost:5173/02b0e179-8a6c-46de-9f89-bafbd354780b",
-      "plantName": "gec nicolson",
-      "category": "greenplant",
-      "description": "very very scary"
     }
   ],
   "users": [

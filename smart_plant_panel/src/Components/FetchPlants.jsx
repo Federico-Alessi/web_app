@@ -43,7 +43,7 @@ const FetchPlants = ({onSelectPlant}) => {
                                 margin: 0
                             }}>{plant.description}</p>
                         </td>
-                        <td><button onClick={() => onSelectPlant(plant)}/></td>
+                        <td><button onClick={() => onSelectPlant(plant)}>👁️</button></td>
                     </tr>
                 ))}
             </table>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import AddPlant from '../Components/AddPlant';
+import RemovePlants from '../Components/RemovePlants';
 
 
 const AdminDashboard = () => {
@@ -30,8 +31,9 @@ const AdminDashboard = () => {
                     <option value="addPlant"> Add a new plant</option>
                     <option value="removePlant">Remove a plant</option>
                 </select>
+                <p></p>
                 { adminAction == "addPlant" && <AddPlant />}
-                { adminAction == "removePlant" && <p>Placeholder</p>}
+                { adminAction == "removePlant" && <RemovePlants/>}
             </div>
         </div>
     );

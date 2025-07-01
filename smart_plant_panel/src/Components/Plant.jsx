@@ -5,10 +5,9 @@ const Plant = ({plantName, image, category, description}) => {
         <div>
             <h1>{plantName}</h1>
             <img src={image} alt={name}/>
-            <h3>Category:</h3>
-            <p>{category}</p>
-            <h3>Description</h3>
-            <p>{description}</p>
+            <br/>
+            <p><b>Category: </b>{category}</p>
+            <p><b>Description: </b>{description}</p>
         </div>
     )
 }

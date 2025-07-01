@@ -10,9 +10,8 @@ export const LogIn = (email, password) => {
             const data = await request.json()
             if (data.length > 0) {
                 dispatch({type: "LOGIN", payload: data[0]})
-                alert("logged in")
             } else {
-                alert("ouch")
+                alert("Wrong credentials")
             }
 
 
