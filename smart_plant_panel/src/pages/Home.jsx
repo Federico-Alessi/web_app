@@ -9,7 +9,6 @@ const Home = () => {
             {isLogged ?
                 <h1>Welcome {isLogged}!</h1> :
                 <h1>Welcome to Smart Plant Panel!</h1>
-            
             }
         </div>
     );

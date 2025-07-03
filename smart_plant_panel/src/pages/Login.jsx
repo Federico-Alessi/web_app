@@ -63,7 +63,7 @@ const Login = () => {
     return (
         <div>
             <h1>Login</h1>
-            <form onSubmit={HandleSubmit}>
+            <form onSubmit={HandleSubmit} id="login">
                 <label>
                     email: <br/><input
                         type="email"

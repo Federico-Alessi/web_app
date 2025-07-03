@@ -8,7 +8,7 @@ const PlantFilters = ({setCategory, setName}) => {
         <label>
             <select
                 id="category-filter"
-                onChange={e => {setCategory(e.target.value)}}
+                onChange={e => setCategory(e.target.value)}
                 >
                     <option value="">All categories</option>
                     <option value="greenplant">Green Plant</option>

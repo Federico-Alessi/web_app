@@ -9,11 +9,10 @@ const LoginReducer = (state = initialState, action) => {
         case "LOGOUT":
             return {
                 ...state,
-                isAdmin: state.isAdmin = false,
+                isAdmin: false,
                 username: null
             }
         case "LOGIN":
-            console.log(action.payload)
             return {
                 ...state,
                 isAdmin: action.payload.isAdmin,

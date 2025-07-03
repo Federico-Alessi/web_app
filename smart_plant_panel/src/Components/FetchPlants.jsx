@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PlantFilters from "./PlantFilters";
+import { SpinnerRoundOutlined } from "spinners-react";
 
-const FetchPlants = ({ onSelectPlant }) => {
+const FetchPlants = ({ onSelectPlant, ids=null }) => {
     const [plants, setPlants] = useState([]);
     const [loading, setLoading] = useState(false);
     //PlantFilters
@@ -9,64 +10,74 @@ const FetchPlants = ({ onSelectPlant }) => {
     const [plantName, setPlantName] = useState("");
     const [limit, setLimit] = useState("20")
 
-    const fetchPlantsData = async () => {
-        setLoading(true);
-        try {
-            let url = `http://localhost:5000/plants?_limit=${limit}`
-            if (category) url+= `&category=` + category
-            if (plantName) url+= `&plantName_like=` + plantName
-            const response = await fetch(url);
-            const result = await response.json();
-            setPlants(result);
-        } catch {
-            return <h1>Database not available</h1>;
-        } finally {
-            setTimeout(() => setLoading(false), 500);
-        }
-    };
-    
     useEffect(() => {
+        const fetchPlantsData = async () => {
+            setLoading(true)
+            let url = `http://localhost:5000/plants?_limit=${limit}`
+            if (category) url += `&category=` + category
+            if (plantName) url += `&plantName_like=` + plantName
+            //if (ids) url += ids.map(id => `&id=${id}`) never trust AI
+            if (ids) ids.map(id => url+= `&id=${id}`)
+            
+            try {
+                const response = await fetch(url);
+                const result = await response.json();
+                setPlants(result);
+            } catch {
+                return <h1>Database not available</h1>;
+            } finally {
+                setTimeout(() => setLoading(false), 700);
+            }
+        };
+
         fetchPlantsData();
-    }, [category, plantName, limit]);
+    }, [category, plantName, limit, ids]);
 
     return (
         <>
-            <PlantFilters setCategory={setCategory} setName={setPlantName}/>
+            <PlantFilters setCategory={setCategory} setName={setPlantName} />
             {loading ? (
-                <p>LOADING...</p>
+                <>
+                    <SpinnerRoundOutlined />
+                    <br />
+                </>
             ) : (
                 <>
                     <table>
-                        <tr>
-                            <th style={{ width: "20%" }}>Name</th>
-                            <th style={{ width: "20%" }}>Category</th>
-                            <th style={{ width: "50%" }}>Description</th>
-                            <th style={{ width: "10%" }}>Show</th>
-                        </tr>
-                        {plants.map((plant) => (
-                            <tr key={plant.id}>
-                                <td>
-                                    <p>{plant.plantName}</p>
-                                </td>
-                                <td>
-                                    <p>{plant.category}</p>
-                                </td>
-                                <td style={{ width: "60%" }}>
-                                    <p style={{
-                                        whiteSpace: "nowrap",
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                        width: "100%",
-                                        margin: 0
-                                    }}>{plant.description}</p>
-                                </td>
-                                <td><button onClick={() => onSelectPlant(plant)}>👁️</button></td>
+                        <thead>
+                            <tr>
+                                <th style={{ width: "20%" }}>Name</th>
+                                <th style={{ width: "20%" }}>Category</th>
+                                <th style={{ width: "50%" }}>Description</th>
+                                <th style={{ width: "10%" }}>Show</th>
                             </tr>
-                        ))}
+                        </thead>
+                        <tbody>
+                            {plants.map((plant) => (
+                                <tr key={plant.id}>
+                                    <td>
+                                        <p>{plant.plantName}</p>
+                                    </td>
+                                    <td>
+                                        <p>{plant.category}</p>
+                                    </td>
+                                    <td style={{ width: "60%" }}>
+                                        <p style={{
+                                            whiteSpace: "nowrap",
+                                            overflow: "hidden",
+                                            textOverflow: "ellipsis",
+                                            width: "100%",
+                                            margin: 0
+                                        }}>{plant.description}</p>
+                                    </td>
+                                    <td><button onClick={() => onSelectPlant(plant)}>👁️</button></td>
+                                </tr>
+                            ))}
+                        </tbody>
                     </table>
+                    <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
                 </>
             )}
-            <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
         </>
     );
 };

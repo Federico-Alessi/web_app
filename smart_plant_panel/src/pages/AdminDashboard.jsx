@@ -24,7 +24,7 @@ const AdminDashboard = () => {
     }
     return (
         <div>
-            <h1>admin dashboard</h1>
+            <h1>Admin dashboard</h1>
             <div>
                 <select onChange={handleDropdownChange} defaultValue="">
                     <option value="" disabled>Choose an operation</option>
