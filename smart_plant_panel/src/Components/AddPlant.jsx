@@ -13,7 +13,7 @@ const AddPlant = () => {
     const handleChange = (e) =>{
         const { name, value, type, files} = e.target
         if (type== "file" && files[0]) {
-            setNewPlant({...newPlant, image: URL.createObjectURL(files[0]) })
+            //setNewPlant({...newPlant, image: URL.createObjectURL(files[0]) })
         } else {
             setNewPlant({...newPlant, [name]: value})
         }
@@ -25,9 +25,7 @@ const AddPlant = () => {
         try {
             const response = await fetch("http://localhost:5000/plants", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: { "Content-Type": "application/json"},
                 body: JSON.stringify(plant)
             });
             if (response.ok) {
