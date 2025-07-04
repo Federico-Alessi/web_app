@@ -4,13 +4,6 @@ import { useNavigate } from "react-router";
 import { LogIn } from "../redux/LoginActions";
 
 const CreateAccount = () => {
-    const [user, setUser] = useState({
-        id: "",
-        username: "",
-        email: "",
-        password: "",
-        isAdmin: false
-    })
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const isLogged = useSelector((state) => state.user.username)
@@ -60,7 +53,7 @@ const CreateAccount = () => {
         }
 
         if (userNameOk && passwordOk && emailOk) {
-            setUser({...user,
+            const user=({
                 id: Date.now().toString(),
                 username: userName,
                 email: email,

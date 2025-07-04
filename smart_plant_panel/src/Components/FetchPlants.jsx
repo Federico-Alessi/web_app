@@ -17,7 +17,12 @@ const FetchPlants = ({ onSelectPlant, ids=null }) => {
             if (category) url += `&category=` + category
             if (plantName) url += `&plantName_like=` + plantName
             //if (ids) url += ids.map(id => `&id=${id}`) never trust AI
-            if (ids) ids.map(id => url+= `&id=${id}`)
+            if (ids && ids.lenght <= limit) {
+                ids.map(id => url+= `&id=${id}`)
+            } else if (ids && ids.lenght > limit) {
+                setLimit(ids.lenght)
+                ids.map(id => url+= `&id=${id}`)
+            }
             
             try {
                 const response = await fetch(url);

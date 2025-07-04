@@ -21,9 +21,6 @@ const Navbar = () => {
         <NavLink to="/nursery">My Nursery</NavLink>
       </div>
       <div>
-        <NavLink to="/calendar">Calendar</NavLink>
-      </div>
-      <div>
         <NavLink to="/browse">Browse Plants</NavLink>
       </div>
       {isAdmin && (

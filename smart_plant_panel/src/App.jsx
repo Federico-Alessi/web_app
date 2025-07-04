@@ -3,7 +3,6 @@ import "./App.css";
 import { Routes, Route } from "react-router";
 import Home from "./pages/Home";
 import MyNursery from "./pages/MyNursery";
-import Calendar from "./pages/Calendar";
 import BrowsePlants from "./pages/BrowsePlants";
 import AdminDashboard from "./pages/AdminDashboard";
 import Login from "./pages/Login";
@@ -21,7 +20,6 @@ function App() {
           <Route element={<Layout/>}>
             <Route path="/" element={<Home />}></Route>
             <Route path="/nursery" element={<MyNursery />}></Route>
-            <Route path="/calendar" element={<Calendar />}></Route>
             <Route path="/browse" element={<BrowsePlants />}></Route>
             <Route path="/admin" element={<AdminDashboard />}></Route>
           </Route>

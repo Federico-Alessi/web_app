@@ -36,34 +36,6 @@
       "email": "user@user.com",
       "password": "user",
       "isAdmin": false
-    },
-    {
-      "id": "1751584434929",
-      "username": "test",
-      "email": "test@test.com",
-      "password": "testi",
-      "isAdmin": false
-    },
-    {
-      "id": "1751584523154",
-      "username": "test",
-      "email": "test@test.com",
-      "password": "testi",
-      "isAdmin": false
-    },
-    {
-      "id": "1751584624710",
-      "username": "test",
-      "email": "test@test.com",
-      "password": "testi",
-      "isAdmin": false
-    },
-    {
-      "id": "1751584713385",
-      "username": "test",
-      "email": "test@test.com",
-      "password": "testi",
-      "isAdmin": false
     }
   ]
 }
