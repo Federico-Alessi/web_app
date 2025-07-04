@@ -45,7 +45,7 @@ const ManageUsers = () => {
         if (deletion == 'success') {
             alert("users deleted")
         } else {
-            alert("failed")
+            alert(deletion)
         }
         setReloadFlag(reloadFlag => !reloadFlag)
     }

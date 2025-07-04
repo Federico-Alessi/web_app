@@ -32,11 +32,11 @@ export async function deleteUsers({ ids }) {
             })
             if (!response.ok) {
                 console.log(response)
-                return 'fail'
+                return 'failed to delete the user'
             }
         }
         return 'success'
     } catch {
-        return 'fail'
+        return 'failed to connect to database'
     }
 }
