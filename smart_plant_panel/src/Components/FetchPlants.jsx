@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PlantFilters from "./PlantFilters";
 import { SpinnerRoundOutlined } from "spinners-react";
+import BlankSpace from "./BlankSpace";
+import { useGetPlants } from "../hooks/usePlants";
 
-const FetchPlants = ({ onSelectPlant, ids=null }) => {
-    const [plants, setPlants] = useState([]);
-    const [loading, setLoading] = useState(false);
+const FetchPlants = ({ onSelectPlant, ids = null, reloadFlag = false }) => {
+    //const [plants, setPlants] = useState([]);
+    //const [loading, setLoading] = useState(false);
     //PlantFilters
     const [category, setCategory] = useState("");
     const [plantName, setPlantName] = useState("");
     const [limit, setLimit] = useState("20")
+    const { plants, loading } = useGetPlants({ reloadFlag: reloadFlag, ids: ids, category: category, plantName: plantName, limit: limit })
 
+    /*
     useEffect(() => {
         const fetchPlantsData = async () => {
             setLoading(true)
@@ -37,6 +41,7 @@ const FetchPlants = ({ onSelectPlant, ids=null }) => {
 
         fetchPlantsData();
     }, [category, plantName, limit, ids]);
+    */
 
     return (
         <>
@@ -80,6 +85,7 @@ const FetchPlants = ({ onSelectPlant, ids=null }) => {
                             ))}
                         </tbody>
                     </table>
+                    <BlankSpace />
                     <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
                 </>
             )}

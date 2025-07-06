@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import AddPlant from '../Components/AddPlant';
-import RemovePlants from '../Components/RemovePlants';
+import EditPlants from '../Components/EditPlants';
 import ManageUsers from '../Components/ManageUsers';
+import ManagePlants from '../Components/ManagePlants';
 
 
 const AdminDashboard = () => {
@@ -30,12 +31,12 @@ const AdminDashboard = () => {
                 <select onChange={handleDropdownChange} defaultValue="">
                     <option value="" disabled>Choose an operation</option>
                     <option value="addPlant"> Add a new plant</option>
-                    <option value="removePlant">Remove a plant</option>
+                    <option value="managePlants">Manage plants</option>
                     <option value="manageUsers">Manage users</option>
                 </select>
                 <p></p>
                 { adminAction == "addPlant" && <AddPlant />}
-                { adminAction == "removePlant" && <RemovePlants/>}
+                { adminAction == "managePlants" && <ManagePlants/>}
                 { adminAction == "manageUsers" && <ManageUsers/>}
             </div>
         </div>

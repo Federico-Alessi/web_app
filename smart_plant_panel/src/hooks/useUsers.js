@@ -42,20 +42,18 @@ export async function deleteUsers({ ids }) {
 }
 
 export async function setAdmin({ids}) {
+    if (ids.length == 0) return 'No users selected'
     try {
         for (const id of ids) {
             const query = await fetch(`http://localhost:5000/users/${id}`)
             const user = await query.json()
-            console.log(!user.isAdmin)
             const value = !user.isAdmin
-            console.log(value)
             const response = await fetch(`http://localhost:5000/users/${id}`, {
                 method: "PATCH",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({isAdmin: value})
             })
             if (!response.ok) {
-                console.log(response)
                 return 'failed to update the user role'
             }
         }

@@ -3,6 +3,7 @@ import User from "./User";
 import { useGetUsers } from "../hooks/useUsers";
 import { SpinnerRoundOutlined } from "spinners-react";
 import { deleteUsers, setAdmin } from "../hooks/useUsers";
+import BlankSpace from "./BlankSpace";
 
 const ManageUsers = () => {
     const [user, setUser] = useState(null)
@@ -94,6 +95,7 @@ const ManageUsers = () => {
                         ))}
                     </tbody>
                 </table>
+                <BlankSpace/>
                 <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
                 <button onClick={() => handleDelete()}>Delete</button>
                 <button onClick={() => handleAdmin()}>Set Admin</button>

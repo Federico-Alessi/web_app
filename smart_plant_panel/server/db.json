@@ -2,14 +2,14 @@
   "plants": [
     {
       "id": "1751403623050",
-      "image": "public/images/Monstera_adansonii.jpg",
+      "image": "images/Monstera_adansonii.jpg",
       "plantName": "Monstera Adansonii",
       "category": "greenplant",
-      "description": "Monstera Adansonii is a tropical plant from the monstera family.\nIt is similar to her sister, the Monstera Deliciosa, but it features smaller leaves.\nMonstera Adansonii is a perfect plant for beginners."
+      "description": "Monstera Adansonii is a tropical plant from the monstera family.\nIt is similar to her sister, the Monstera Deliciosa, but it features smaller leaves.\nMonstera Adansonii is a perfect plant for beginners. Edited"
     },
     {
       "id": "1751403751087",
-      "image": "public/images/Pilea_peperomioides.jpg",
+      "image": "images/Pilea_peperomioides.jpg",
       "plantName": "Pilea Peperomioides",
       "category": "greenplant",
       "description": "Pilea Peperomioides is a green plant typically from China.\nIt requires a well drained soil and loves a partial shade.\nPilea Peperomioides can be reproduced either by propagation or by root division."
