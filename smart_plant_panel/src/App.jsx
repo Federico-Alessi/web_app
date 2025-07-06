@@ -17,14 +17,14 @@ function App() {
     <>
       <Provider store={store}>
         <Routes>
-          <Route element={<Layout/>}>
+          <Route element={<Layout />}>
             <Route path="/" element={<Home />}></Route>
             <Route path="/nursery" element={<MyNursery />}></Route>
             <Route path="/browse" element={<BrowsePlants />}></Route>
             <Route path="/admin" element={<AdminDashboard />}></Route>
           </Route>
           <Route path="Login" element={<Login />}></Route>
-          <Route path="*" element={<NotFound/>}></Route>
+          <Route path="*" element={<NotFound />}></Route>
           // TODO add 404 page
         </Routes>
       </Provider>

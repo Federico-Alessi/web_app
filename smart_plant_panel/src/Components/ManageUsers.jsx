@@ -39,9 +39,9 @@ const ManageUsers = () => {
             setSelectedUsers([])
         }
     }
-    
+
     const handleDelete = async () => {
-        const deletion =  await deleteUsers({ids: selectedUsers})
+        const deletion = await deleteUsers({ ids: selectedUsers })
 
         if (deletion == 'success') {
             alert("users deleted")
@@ -52,9 +52,9 @@ const ManageUsers = () => {
     }
 
     const handleAdmin = async () => {
-        const action = await setAdmin({ids: selectedUsers})
+        const action = await setAdmin({ ids: selectedUsers })
 
-                if (action == 'success') {
+        if (action == 'success') {
             alert("User's permissions changed")
         } else {
             alert(action)
@@ -68,37 +68,37 @@ const ManageUsers = () => {
                 <SpinnerRoundOutlined />
             ) : (
                 <>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style={{ width: "20%" }}>id</th>
-                            <th style={{ width: "20%" }}>Name</th>
-                            <th style={{ width: "40%" }}>email</th>
-                            <th style={{ width: "10%" }}>Admin</th>
-                            <th style={{ width: "10%" }}>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style={{ width: "20%" }}>id</th>
+                                <th style={{ width: "20%" }}>Name</th>
+                                <th style={{ width: "40%" }}>email</th>
+                                <th style={{ width: "10%" }}>Admin</th>
+                                <th style={{ width: "10%" }}>
 
-                                <input id="select-all" style={{display:"inline"}} type="checkbox" checked={selectedUsers.length == users.length} onChange={() => handleSelectAll()} />
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map(user => (
-                            <tr key={user.id}>
-                                <td onClick={() => setUser(user)}>{user.id}</td>
-                                <td>{user.username}</td>
-                                <td>{user.email}</td>
-                                <td>{user.isAdmin ? '✅' : '❌'}</td>
-                                <td>
-                                    <input name={`select${user.id}`} type="checkbox" checked={selectedUsers.includes(user.id)} onChange={() => handleCheck(user.id)} />
-                                </td>
+                                    <input id="select-all" style={{ display: "inline" }} type="checkbox" checked={selectedUsers.length == users.length} onChange={() => handleSelectAll()} />
+                                </th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-                <BlankSpace/>
-                <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
-                <button onClick={() => handleDelete()}>Delete</button>
-                <button onClick={() => handleAdmin()}>Set Admin</button>
+                        </thead>
+                        <tbody>
+                            {users.map(user => (
+                                <tr key={user.id}>
+                                    <td onClick={() => setUser(user)}>{user.id}</td>
+                                    <td>{user.username}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.isAdmin ? '✅' : '❌'}</td>
+                                    <td>
+                                        <input name={`select${user.id}`} type="checkbox" checked={selectedUsers.includes(user.id)} onChange={() => handleCheck(user.id)} />
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <BlankSpace />
+                    <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
+                    <button onClick={() => handleDelete()}>Delete</button>
+                    <button onClick={() => handleAdmin()}>Set Admin</button>
                 </>
             )}
             <>

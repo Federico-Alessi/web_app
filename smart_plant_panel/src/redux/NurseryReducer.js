@@ -1,6 +1,6 @@
-const initialState = {plants:[]}
+const initialState = { plants: [] }
 
-const NurseryReducer = (state=initialState, action) => {
+const NurseryReducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD":
             return {

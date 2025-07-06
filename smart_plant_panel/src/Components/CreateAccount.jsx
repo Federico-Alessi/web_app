@@ -53,7 +53,7 @@ const CreateAccount = () => {
         }
 
         if (userNameOk && passwordOk && emailOk) {
-            const user=({
+            const user = ({
                 id: Date.now().toString(),
                 username: userName,
                 email: email,
@@ -62,18 +62,18 @@ const CreateAccount = () => {
             try {
                 const response = await fetch(`http://localhost:5000/users`, {
                     method: "POST",
-                    headers: {"Content-Type": "application/json"},
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(user)
                 });
                 if (response.ok)
                     dispatch(LogIn(email, password))
-                    console.log(response)
+                console.log(response)
             } catch (e) {
                 alert("Something went wrong, please retry later")
                 console.log(e)
                 console.log(user)
             }
-        }else console.log(userName +" "+ email +" "+ password)
+        } else console.log(userName + " " + email + " " + password)
     }
 
     useEffect(() => {

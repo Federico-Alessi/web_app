@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,  useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { LogIn } from "../redux/LoginActions";
@@ -12,7 +12,7 @@ const LoginComponent = () => {
     const [email, setEmail] = useState("");
     const [password, setpassword] = useState("");
 
-    useEffect(()=> {
+    useEffect(() => {
         if (isLogged) {
             navigate("/");
         }
@@ -65,23 +65,23 @@ const LoginComponent = () => {
             <h1>Login</h1>
             <form onSubmit={HandleSubmit} id="login">
                 <label>
-                    email: <br/><input
+                    email: <br /><input
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        />
+                    />
                 </label>
-                <br/>
+                <br />
                 <label>
-                    password: <br/><input
+                    password: <br /><input
                         type="text"
                         value={password}
                         onChange={(e) => setpassword(e.target.value)}
                         required
                     />
                 </label>
-                <br/>
+                <br />
                 <button type="submit">Login</button>
             </form>
         </div>

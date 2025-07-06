@@ -21,8 +21,8 @@ const ManagePlants = () => {
             alert("Plant not found")
         }
         */
-       const removal = await removePlant(plant)
-       alert(removal)
+        const removal = await removePlant(plant)
+        alert(removal)
 
         setSelectedPlant(null)
     }
@@ -33,11 +33,11 @@ const ManagePlants = () => {
                 <div>
                     {editPlant ? (
                         <>
-                        <br/>
-                        <EditPlants plant={selectedPlant} onFinishEditing={ (updatedPlant) =>{
-                            if (updatedPlant) setSelectedPlant(updatedPlant)
-                            setEditPlant(null)
-                        }}/>
+                            <br />
+                            <EditPlants plant={selectedPlant} onFinishEditing={(updatedPlant) => {
+                                if (updatedPlant) setSelectedPlant(updatedPlant)
+                                setEditPlant(null)
+                            }} />
                         </>
                     ) : (
                         <>
@@ -50,7 +50,7 @@ const ManagePlants = () => {
                     )}
                 </div>
             ) : (
-                <FetchPlants onSelectPlant={setSelectedPlant}/>
+                <FetchPlants onSelectPlant={setSelectedPlant} />
             )}
         </>
     )

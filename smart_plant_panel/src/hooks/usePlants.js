@@ -51,15 +51,15 @@ export async function editPlant({ editedPlant }) {
     }
 }
 
-export async function removePlant(plant){
-     try {
-            const response = await fetch(`http://localhost:5000/plants/${plant.id}`, {
-                method: "DELETE"
-            });
-            if (response.ok) {
-                return "Plant removed from database"
-            }
-        } catch {
-            return "Error while connecting to the database"
+export async function removePlant(plant) {
+    try {
+        const response = await fetch(`http://localhost:5000/plants/${plant.id}`, {
+            method: "DELETE"
+        });
+        if (response.ok) {
+            return "Plant removed from database"
         }
+    } catch {
+        return "Error while connecting to the database"
+    }
 }

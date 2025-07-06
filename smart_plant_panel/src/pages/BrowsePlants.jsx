@@ -14,21 +14,21 @@ const BrowsePlants = () => {
         dispatch(addToNursery(selectedPlant.id))
         setSelectedPlant(null)
         setFlag(true)
-        setTimeout(() => {setFlag(false)}, 5000)
+        setTimeout(() => { setFlag(false) }, 5000)
     }
-    
+
     return (
         <div>
-            {flag ? <Alert severity='success' onClose={()=>{setFlag(false)}} id='alert'>Plant added to nursery</Alert> : null}
-            <br/>
+            {flag ? <Alert severity='success' onClose={() => { setFlag(false) }} id='alert'>Plant added to nursery</Alert> : null}
+            <br />
             {selectedPlant ? (
                 <div>
-                <button onClick={() => setSelectedPlant(null)}>↩</button>
-                <Plant {...selectedPlant} />
-                <button onClick={() => nurseryHandler()}>Add to nursery</button>
+                    <button onClick={() => setSelectedPlant(null)}>↩</button>
+                    <Plant {...selectedPlant} />
+                    <button onClick={() => nurseryHandler()}>Add to nursery</button>
                 </div>
             ) : (
-                <FetchPlants onSelectPlant={setSelectedPlant}/>)}
+                <FetchPlants onSelectPlant={setSelectedPlant} />)}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useGetUsers({ limit = "20", reloadFlag=false }) {
+export function useGetUsers({ limit = "20", reloadFlag = false }) {
     const [loading, setLoading] = useState(false)
     const [users, setUsers] = useState([])
 
@@ -41,7 +41,7 @@ export async function deleteUsers({ ids }) {
     }
 }
 
-export async function setAdmin({ids}) {
+export async function setAdmin({ ids }) {
     if (ids.length == 0) return 'No users selected'
     try {
         for (const id of ids) {
@@ -50,8 +50,8 @@ export async function setAdmin({ids}) {
             const value = !user.isAdmin
             const response = await fetch(`http://localhost:5000/users/${id}`, {
                 method: "PATCH",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({isAdmin: value})
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ isAdmin: value })
             })
             if (!response.ok) {
                 return 'failed to update the user role'

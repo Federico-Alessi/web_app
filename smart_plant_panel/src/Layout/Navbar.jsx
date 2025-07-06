@@ -39,7 +39,7 @@ const Navbar = () => {
           </button>
         </div>
       )}
-            {!isLogged && (
+      {!isLogged && (
         <div>
           <button
             onClick={() => {

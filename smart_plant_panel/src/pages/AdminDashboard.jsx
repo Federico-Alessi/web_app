@@ -35,9 +35,9 @@ const AdminDashboard = () => {
                     <option value="manageUsers">Manage users</option>
                 </select>
                 <p></p>
-                { adminAction == "addPlant" && <AddPlant />}
-                { adminAction == "managePlants" && <ManagePlants/>}
-                { adminAction == "manageUsers" && <ManageUsers/>}
+                {adminAction == "addPlant" && <AddPlant />}
+                {adminAction == "managePlants" && <ManagePlants />}
+                {adminAction == "manageUsers" && <ManageUsers />}
             </div>
         </div>
     );

@@ -11,17 +11,17 @@ const Login = () => {
 
     return (
         <>
-        {isNew ? (
-            <>
-            <CreateAccount/>
-            <p>Already have an account? <a href="#" onClick={() => handleNewUser()}>Login</a></p>
-            </>
-        ) : (
-            <>
-            <LoginComponent />
-            <p>New user? <a href="#" onClick={() => handleNewUser()}>Create an account</a></p>
-            </>
-        )}
+            {isNew ? (
+                <>
+                    <CreateAccount />
+                    <p>Already have an account? <a href="#" onClick={() => handleNewUser()}>Login</a></p>
+                </>
+            ) : (
+                <>
+                    <LoginComponent />
+                    <p>New user? <a href="#" onClick={() => handleNewUser()}>Create an account</a></p>
+                </>
+            )}
         </>
     )
 }

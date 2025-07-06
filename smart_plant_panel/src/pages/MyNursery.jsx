@@ -17,12 +17,12 @@ const MyNursery = () => {
         dispatch(removeFromNursery(selectedPlant.id))
         setSelectedPlant(null)
         setFlag(true)
-        setTimeout(() => {setFlag(false)}, 5000)
+        setTimeout(() => { setFlag(false) }, 5000)
     }
 
     return (
         <div>
-            {flag && <Alert severity='info' id='alert' onClose={() => {setFlag(false)}}>Plant removed from nursery</Alert>}
+            {flag && <Alert severity='info' id='alert' onClose={() => { setFlag(false) }}>Plant removed from nursery</Alert>}
             <h1>Nursery</h1>
             {selectedPlant ? (
                 <>
