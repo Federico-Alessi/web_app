@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import User from "./User";
 import { useGetUsers } from "../hooks/useUsers";
 import { SpinnerRoundOutlined } from "spinners-react";
-import { deleteUsers } from "../hooks/useUsers";
+import { deleteUsers, setAdmin } from "../hooks/useUsers";
 
 const ManageUsers = () => {
     const [user, setUser] = useState(null)
@@ -50,6 +50,17 @@ const ManageUsers = () => {
         setReloadFlag(reloadFlag => !reloadFlag)
     }
 
+    const handleAdmin = async () => {
+        const action = await setAdmin({ids: selectedUsers})
+
+                if (action == 'success') {
+            alert("User's permissions changed")
+        } else {
+            alert(action)
+        }
+        setReloadFlag(reloadFlag => !reloadFlag)
+    }
+
     return (
         <>
             {loading ? (
@@ -60,8 +71,9 @@ const ManageUsers = () => {
                     <thead>
                         <tr>
                             <th style={{ width: "20%" }}>id</th>
-                            <th style={{ width: "30%" }}>Name</th>
+                            <th style={{ width: "20%" }}>Name</th>
                             <th style={{ width: "40%" }}>email</th>
+                            <th style={{ width: "10%" }}>Admin</th>
                             <th style={{ width: "10%" }}>
 
                                 <input id="select-all" style={{display:"inline"}} type="checkbox" checked={selectedUsers.length == users.length} onChange={() => handleSelectAll()} />
@@ -74,6 +86,7 @@ const ManageUsers = () => {
                                 <td onClick={() => setUser(user)}>{user.id}</td>
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
+                                <td>{user.isAdmin ? '✅' : '❌'}</td>
                                 <td>
                                     <input name={`select${user.id}`} type="checkbox" checked={selectedUsers.includes(user.id)} onChange={() => handleCheck(user.id)} />
                                 </td>
@@ -83,6 +96,7 @@ const ManageUsers = () => {
                 </table>
                 <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
                 <button onClick={() => handleDelete()}>Delete</button>
+                <button onClick={() => handleAdmin()}>Set Admin</button>
                 </>
             )}
             <>

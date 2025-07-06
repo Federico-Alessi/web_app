@@ -14,13 +14,13 @@ const FetchPlants = ({ onSelectPlant, ids=null }) => {
         const fetchPlantsData = async () => {
             setLoading(true)
             let url = `http://localhost:5000/plants?_limit=${limit}`
-            if (category) url += `&category=` + category
-            if (plantName) url += `&plantName_like=` + plantName
+            if (category) url += `&category=${category}`
+            if (plantName) url += `&plantName_like=${plantName}`
             //if (ids) url += ids.map(id => `&id=${id}`) never trust AI
-            if (ids && ids.lenght <= limit) {
+            if (ids && ids.length <= limit) {
                 ids.map(id => url+= `&id=${id}`)
-            } else if (ids && ids.lenght > limit) {
-                setLimit(ids.lenght)
+            } else if (ids && ids.length > limit) {
+                setLimit(ids.length)
                 ids.map(id => url+= `&id=${id}`)
             }
             

@@ -3,13 +3,11 @@ const initialState = {plants:[]}
 const NurseryReducer = (state=initialState, action) => {
     switch (action.type) {
         case "ADD":
-            console.log(state)
             return {
                 ...state,
                 plants: [...state.plants, action.payload]
             }
         case "REMOVE":
-            console.log(state)
             return {
                 ...state,
                 plants: [...state.plants.filter(id => id != action.payload)]

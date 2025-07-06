@@ -20,7 +20,6 @@ const MyNursery = () => {
         setTimeout(() => {setFlag(false)}, 5000)
     }
 
-    console.log(myPlants)
     return (
         <div>
             {flag && <Alert severity='info' id='alert' onClose={() => {setFlag(false)}}>Plant removed from nursery</Alert>}
