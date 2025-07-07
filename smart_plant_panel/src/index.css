@@ -18,11 +18,13 @@ a {
   color: #f8f9fa;
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #04A777;;
+  color: #04a777;
 }
+
 a.active {
-  color: #04A777;
+  color: #04a777;
 }
 
 body {
@@ -36,7 +38,7 @@ body {
 h1 {
   font-size: 2.5em;
   margin: 0.5em 0;
-  color:#04A777;
+  color: #04a777;
   text-align: center;
   line-height: 1.1;
 }
@@ -53,9 +55,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -71,7 +75,9 @@ label {
   width: 20%;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
 }
 
@@ -90,7 +96,7 @@ header {
   overflow: hidden;
   justify-content: center;
   border-bottom: 1px solid #dee2e6;
-  text-decoration-color: #04A777;
+  text-decoration-color: #04a777;
 }
 
 header div {
@@ -109,25 +115,6 @@ header div {
   bottom: 10px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #f8f9fa;
-  }
-  a {
-    color: #242424;
-  }
-  a:hover {
-    color: #3ba762a6;
-  }
-  button {
-    background-color: #3ba762a6;
-  }
-  header {
-    background-color: #f8f9fa;
-  }
-}
-
 table {
   text-align: left;
   width: 100%;
@@ -135,6 +122,53 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
   border-bottom: 1px solid #1a1a1a;
+}
+
+.underlined-clickable {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.display-overlay {
+  position: fixed;
+  min-width: 40%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px 40px 40px;
+  text-align: center;
+  background-color: #242424;
+  box-shadow: 0 0 500px black;
+  border-radius: 20px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #f8f9fa;
+  }
+
+  a {
+    color: #242424;
+  }
+
+  a:hover {
+    color: #3ba762a6;
+  }
+
+  button {
+    background-color: #3ba762a6;
+  }
+
+  header {
+    background-color: #f8f9fa;
+  }
+
+  .display-overlay {
+    background-color: #f8f9fa;
+    box-shadow: 0 0 500px gray;
+  }
 }

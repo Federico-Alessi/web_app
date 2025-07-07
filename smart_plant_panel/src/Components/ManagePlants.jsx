@@ -8,7 +8,7 @@ const ManagePlants = () => {
     const [selectedPlant, setSelectedPlant] = useState(null);
     const [editPlant, setEditPlant] = useState(null)
 
-    const handleRemovePlant = async (plant) => {
+    const handleRemovePlant = async () => {
         /*
         try {
             const response = await fetch(`http://localhost:5000/plants/${plant.id}`, {
@@ -21,7 +21,7 @@ const ManagePlants = () => {
             alert("Plant not found")
         }
         */
-        const removal = await removePlant(plant)
+        const removal = await removePlant(selectedPlant)
         alert(removal)
 
         setSelectedPlant(null)
@@ -29,11 +29,10 @@ const ManagePlants = () => {
 
     return (
         <>
-            {selectedPlant ? (
-                <div>
+            {selectedPlant &&
+                <div className="display-overlay">
                     {editPlant ? (
                         <>
-                            <br />
                             <EditPlants plant={selectedPlant} onFinishEditing={(updatedPlant) => {
                                 if (updatedPlant) setSelectedPlant(updatedPlant)
                                 setEditPlant(null)
@@ -41,17 +40,15 @@ const ManagePlants = () => {
                         </>
                     ) : (
                         <>
-                            <br />
-                            <button onClick={() => setSelectedPlant(null)}>↩</button>
-                            <Plant {...selectedPlant} />
-                            <button onClick={() => handleRemovePlant(selectedPlant)}>🗑️</button>
+                            <Plant plant={selectedPlant} onExit={setSelectedPlant} />
+                            <button onClick={handleRemovePlant}>🗑️</button>
                             <button onClick={() => setEditPlant(selectedPlant)}>Edit</button>
                         </>
                     )}
                 </div>
-            ) : (
-                <FetchPlants onSelectPlant={setSelectedPlant} />
-            )}
+            }
+
+            <FetchPlants onSelectPlant={setSelectedPlant} />
         </>
     )
 }

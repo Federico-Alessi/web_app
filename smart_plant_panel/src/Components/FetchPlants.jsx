@@ -3,15 +3,16 @@ import PlantFilters from "./PlantFilters";
 import { SpinnerRoundOutlined } from "spinners-react";
 import BlankSpace from "./BlankSpace";
 import { useGetPlants } from "../hooks/usePlants";
+import Plant from "./Plant";
 
-const FetchPlants = ({ onSelectPlant, ids = null, reloadFlag = false }) => {
+const FetchPlants = ({ onSelectPlant }) => {
     //const [plants, setPlants] = useState([]);
     //const [loading, setLoading] = useState(false);
     //PlantFilters
     const [category, setCategory] = useState("");
     const [plantName, setPlantName] = useState("");
     const [limit, setLimit] = useState("20")
-    const { plants, loading } = useGetPlants({ reloadFlag: reloadFlag, ids: ids, category: category, plantName: plantName, limit: limit })
+    const { plants, loading } = useGetPlants({ category: category, plantName: plantName, limit: limit })
 
     /*
     useEffect(() => {
@@ -87,6 +88,7 @@ const FetchPlants = ({ onSelectPlant, ids = null, reloadFlag = false }) => {
                     </table>
                     <BlankSpace />
                     <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
+
                 </>
             )}
         </>

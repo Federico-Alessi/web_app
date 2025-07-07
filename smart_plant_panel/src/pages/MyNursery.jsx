@@ -14,7 +14,7 @@ const MyNursery = () => {
     const dispatch = useDispatch()
 
     const removeHandler = () => {
-        dispatch(removeFromNursery(selectedPlant.id))
+        dispatch(removeFromNursery(selectedPlant))
         setSelectedPlant(null)
         setFlag(true)
         setTimeout(() => { setFlag(false) }, 5000)
@@ -24,21 +24,52 @@ const MyNursery = () => {
         <div>
             {flag && <Alert severity='info' id='alert' onClose={() => { setFlag(false) }}>Plant removed from nursery</Alert>}
             <h1>Nursery</h1>
-            {selectedPlant ? (
-                <>
-                    <button onClick={() => setSelectedPlant(null)}>↩</button>
-                    <Plant {...selectedPlant} />
-                    <button onClick={() => removeHandler()}>Remove from nursery</button>
-                </>
-            ) : (
-                <>
-                    {myPlants.length > 0 ? (
-                        <FetchPlants onSelectPlant={setSelectedPlant} ids={myPlants} />
-                    ) : (
-                        <p>No plants in your nursery yet. Visit <u style={{ cursor: "pointer" }} onClick={() => navigate("/browse")}>Browse Plants</u></p>
-                    )}
-                </>
-            )}
+            <>
+                {myPlants.length > 0 ? (
+                    <>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style={{ width: "20%" }}>Name</th>
+                                    <th style={{ width: "20%" }}>Category</th>
+                                    <th style={{ width: "50%" }}>Description</th>
+                                    <th style={{ width: "10%" }}>Show</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {myPlants.map((plant) => (
+                                    <tr key={plant.id}>
+                                        <td>
+                                            <p>{plant.plantName}</p>
+                                        </td>
+                                        <td>
+                                            <p>{plant.category}</p>
+                                        </td>
+                                        <td style={{ width: "60%" }}>
+                                            <p style={{
+                                                whiteSpace: "nowrap",
+                                                overflow: "hidden",
+                                                textOverflow: "ellipsis",
+                                                width: "100%",
+                                                margin: 0
+                                            }}>{plant.description}</p>
+                                        </td>
+                                        <td><button onClick={() => setSelectedPlant(plant)}>👁️</button></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                        {selectedPlant &&
+                            <div className="display-overlay">
+                                <Plant plant={selectedPlant} onExit={setSelectedPlant} />
+                                <button onClick={removeHandler}>Remove from Nursery</button>
+                            </div>
+                        }
+                    </>
+                ) : (
+                    <p>No plants in your nursery yet. Visit <u style={{ cursor: "pointer" }} onClick={() => navigate("/browse")}>Browse Plants</u></p>
+                )}
+            </>
         </div>
     );
 };

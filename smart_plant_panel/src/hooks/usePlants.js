@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function useGetPlants({ reloadFlag = false, ids = null, category, plantName, limit }) {
+export function useGetPlants({ category, plantName, limit }) {
     const [plants, setPlants] = useState([])
     const [loading, setLoading] = useState(false)
     //PlantFilters
@@ -14,7 +14,6 @@ export function useGetPlants({ reloadFlag = false, ids = null, category, plantNa
             let url = `http://localhost:5000/plants?_limit=${limit}`
             if (category) url += `&category=${category}`
             if (plantName) url += `&plantName_like=${plantName}`
-            if (ids) ids.map(id => url += `&id=${id}`)
 
             try {
                 const response = await fetch(url);
@@ -28,7 +27,7 @@ export function useGetPlants({ reloadFlag = false, ids = null, category, plantNa
         };
 
         fetchPlantsData();
-    }, [category, plantName, limit, ids, reloadFlag]);
+    }, [category, plantName, limit]);
 
     return { plants, loading }
 }

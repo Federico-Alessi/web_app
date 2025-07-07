@@ -53,6 +53,7 @@ const CreateAccount = () => {
             passwordOk = true;
         }
 
+        // Sign up and login if parameters are ok
         if (userNameOk && passwordOk && emailOk) {
             const user = ({
                 id: Date.now().toString(),
@@ -118,7 +119,7 @@ const CreateAccount = () => {
                     />
                 </label>
                 <br />
-                <button type="submit">Login</button>
+                <button type="submit">Sign up</button>
             </form>
         </div>
     )

@@ -11,7 +11,8 @@ const BrowsePlants = () => {
     const [flag, setFlag] = useState(false)
 
     const nurseryHandler = () => {
-        dispatch(addToNursery(selectedPlant.id))
+        console.log(selectedPlant)
+        dispatch(addToNursery(selectedPlant))
         setSelectedPlant(null)
         setFlag(true)
         setTimeout(() => { setFlag(false) }, 5000)
@@ -21,14 +22,16 @@ const BrowsePlants = () => {
         <div>
             {flag ? <Alert severity='success' onClose={() => { setFlag(false) }} id='alert'>Plant added to nursery</Alert> : null}
             <br />
-            {selectedPlant ? (
-                <div>
-                    <button onClick={() => setSelectedPlant(null)}>↩</button>
-                    <Plant {...selectedPlant} />
-                    <button onClick={() => nurseryHandler()}>Add to nursery</button>
-                </div>
-            ) : (
-                <FetchPlants onSelectPlant={setSelectedPlant} />)}
+            <FetchPlants onSelectPlant={setSelectedPlant} />
+
+            <>
+                {selectedPlant &&
+                    <div className="display-overlay">
+                        <Plant plant={selectedPlant} onExit={setSelectedPlant} />
+                        <button onClick={nurseryHandler}>Add to Nursery</button>
+                    </div>
+                }
+            </>
         </div>
     );
 };

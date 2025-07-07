@@ -6,7 +6,7 @@ import { deleteUsers, setAdmin } from "../hooks/useUsers";
 import BlankSpace from "./BlankSpace";
 
 const ManageUsers = () => {
-    const [user, setUser] = useState(null)
+    const [displayUser, setDisplayUser] = useState(null)
     const [limit, setLimit] = useState("10")
     //const [users, setUsers] = useState([])
     //const [loading, setLoading] = useState(false)
@@ -84,7 +84,7 @@ const ManageUsers = () => {
                         <tbody>
                             {users.map(user => (
                                 <tr key={user.id}>
-                                    <td onClick={() => setUser(user)}>{user.id}</td>
+                                    <td onClick={() => setDisplayUser(user)} className="underlined-clickable">{user.id}</td>
                                     <td>{user.username}</td>
                                     <td>{user.email}</td>
                                     <td>{user.isAdmin ? '✅' : '❌'}</td>
@@ -102,8 +102,11 @@ const ManageUsers = () => {
                 </>
             )}
             <>
-                {user ? (
-                    <User username={user.username} email={user.email} password={user.password} id={user.id} />
+                {displayUser ? (
+                    <div className="display-overlay">
+                        <User username={displayUser.username} email={displayUser.email} password={displayUser.password} id={displayUser.id} />
+                        <button onClick={() => setDisplayUser(null)}>X</button>
+                    </div>
                 ) : (
                     null)}
             </>
