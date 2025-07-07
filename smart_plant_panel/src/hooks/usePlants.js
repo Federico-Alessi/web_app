@@ -33,6 +33,29 @@ export function useGetPlants({ reloadFlag = false, ids = null, category, plantNa
     return { plants, loading }
 }
 
+export async function addPlant(newPlant) {
+    const plant = { ...newPlant, id: Date.now().toString() };
+    let resetFlag = false
+    let message = ''
+
+    try {
+        const response = await fetch("http://localhost:5000/plants", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(plant)
+        });
+        if (response.ok) {
+            resetFlag = true
+            message = 'Plant added!'
+        } else {
+            message = 'Something went wrong'
+        }
+    } catch {
+        message = 'Failed to connect to database'
+    }
+    return { message, resetFlag }
+}
+
 export async function editPlant({ editedPlant }) {
     console.log(editedPlant)
     try {

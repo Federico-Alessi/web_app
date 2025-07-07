@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { addPlant } from "../hooks/usePlants";
 
 
 const AddPlant = () => {
@@ -21,6 +22,16 @@ const AddPlant = () => {
     //passes the new plant to the parent of AddPlant
     const handleNewPlant = async (e) => {
         e.preventDefault()
+        const { message, resetFlag } = await addPlant(newPlant)
+        alert(message)
+        if (resetFlag) setNewPlant({
+            id: null,
+            image: "600x400.png",
+            plantName: "",
+            category: "",
+            description: ""
+        })
+        /*
         const plant = { ...newPlant, id: Date.now().toString() };
         try {
             const response = await fetch("http://localhost:5000/plants", {
@@ -43,6 +54,7 @@ const AddPlant = () => {
         } catch {
             alert("Failed to connect to server.")
         }
+        */
     }
     return (
         <form onSubmit={handleNewPlant}>
