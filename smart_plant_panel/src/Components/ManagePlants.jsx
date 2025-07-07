@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import FetchPlants from "./FetchPlants";
 import Plant from "./Plant";
 import EditPlants from "./EditPlants";
-import { removePlant } from "../hooks/usePlants";
+import { removePlant } from "../api/plantsApi";
 
 const ManagePlants = () => {
-    const [selectedPlant, setSelectedPlant] = useState(null);
+    const [selectedPlant, setSelectedPlant] = useState(null)
     const [editPlant, setEditPlant] = useState(null)
+    const [reloadPlants, setReloadPlants] = useState(false)
 
     const handleRemovePlant = async () => {
         /*
@@ -23,32 +24,31 @@ const ManagePlants = () => {
         */
         const removal = await removePlant(selectedPlant)
         alert(removal)
-
+        setReloadPlants(state => !state)
         setSelectedPlant(null)
     }
 
     return (
         <>
-            {selectedPlant &&
-                <div className="display-overlay">
-                    {editPlant ? (
-                        <>
-                            <EditPlants plant={selectedPlant} onFinishEditing={(updatedPlant) => {
-                                if (updatedPlant) setSelectedPlant(updatedPlant)
-                                setEditPlant(null)
-                            }} />
-                        </>
-                    ) : (
-                        <>
+            {editPlant ? (
+                <>
+                    <EditPlants plant={selectedPlant} onFinishEditing={(updatedPlant) => {
+                        if (updatedPlant) setSelectedPlant(updatedPlant)
+                        setEditPlant(null)
+                    }} />
+                </>
+            ) : (
+                <>
+                    <FetchPlants onSelectPlant={setSelectedPlant} trigger={reloadPlants} />
+                    {selectedPlant && (
+                        <div className="display-overlay">
                             <Plant plant={selectedPlant} onExit={setSelectedPlant} />
                             <button onClick={handleRemovePlant}>🗑️</button>
                             <button onClick={() => setEditPlant(selectedPlant)}>Edit</button>
-                        </>
+                        </div>
                     )}
-                </div>
-            }
-
-            <FetchPlants onSelectPlant={setSelectedPlant} />
+                </>
+            )}
         </>
     )
 }

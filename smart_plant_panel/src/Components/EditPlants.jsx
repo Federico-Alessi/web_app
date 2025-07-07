@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { editPlant } from "../hooks/usePlants";
+import { editPlant } from "../api/plantsApi";
 
 const EditPlants = ({ plant, onFinishEditing }) => {
     const [editedPlant, setEditedPlant] = useState({ ...plant })

@@ -2,7 +2,6 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import AddPlant from '../Components/AddPlant';
-import EditPlants from '../Components/EditPlants';
 import ManageUsers from '../Components/ManageUsers';
 import ManagePlants from '../Components/ManagePlants';
 

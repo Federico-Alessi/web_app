@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addPlant } from "../hooks/usePlants";
+import { addPlant } from "../api/plantsApi";
 
 
 const AddPlant = () => {

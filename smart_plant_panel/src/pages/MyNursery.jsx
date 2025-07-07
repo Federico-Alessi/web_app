@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FetchPlants from '../Components/FetchPlants';
 import { useDispatch, useSelector } from 'react-redux';
 import Plant from '../Components/Plant';
 import { useNavigate } from 'react-router';
