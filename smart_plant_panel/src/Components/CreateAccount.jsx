@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { LogIn } from "../redux/LoginActions";
+import { userSignUp } from "../hooks/useUsers";
 
 const CreateAccount = () => {
     const navigate = useNavigate()
@@ -59,6 +60,11 @@ const CreateAccount = () => {
                 email: email,
                 password: password
             })
+
+            const { message, loginFlag } = await userSignUp({ user })
+            alert(message)
+            if (loginFlag) dispatch(LogIn(email, password))
+            /*
             try {
                 const response = await fetch(`http://localhost:5000/users`, {
                     method: "POST",
@@ -73,7 +79,8 @@ const CreateAccount = () => {
                 console.log(e)
                 console.log(user)
             }
-        } else console.log(userName + " " + email + " " + password)
+            */
+        }
     }
 
     useEffect(() => {

@@ -62,3 +62,26 @@ export async function setAdmin({ ids }) {
         return 'failed to connect to database'
     }
 }
+
+export async function userSignUp({ user }) {
+    const { username } = user
+    let loginFlag = false
+    let message = ''
+
+    try {
+        const response = await fetch(`http://localhost:5000/users`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user)
+        });
+        if (response.ok) {
+            //dispatch(LogIn(email, password))
+            message = `Welcome ${username}!`
+            loginFlag = true
+            return { loginFlag, message }
+        }
+    } catch {
+        message = 'An error occurred while connecting to the database'
+        return { loginFlag, message }
+    }
+}
