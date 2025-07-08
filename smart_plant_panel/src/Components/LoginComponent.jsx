@@ -75,7 +75,7 @@ const LoginComponent = () => {
                 <br />
                 <label>
                     password: <br /><input
-                        type="text"
+                        type="password"
                         value={password}
                         onChange={(e) => setpassword(e.target.value)}
                         required

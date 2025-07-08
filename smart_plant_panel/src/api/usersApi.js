@@ -59,3 +59,18 @@ export async function userSignUp({ user }) {
         return { loginFlag, message }
     }
 }
+
+export async function verifyLoggedUser({ username, rawPassword }) {
+    try {
+        const password = rawPassword.replace(/[^a-zA-Z0-9]/g, '')
+        const response = await fetch(`http://localhost:5000/users?username=${username}&password=${password}`)
+        const data = await response.json()
+        if (data.length > 0){
+            return true
+        } else {
+            return false
+        }
+    } catch {
+        return false
+    }
+}

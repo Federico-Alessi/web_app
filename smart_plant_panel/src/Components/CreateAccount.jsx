@@ -112,7 +112,7 @@ const CreateAccount = () => {
                 <br />
                 <label>
                     password: <br /><input
-                        type="text"
+                        type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
