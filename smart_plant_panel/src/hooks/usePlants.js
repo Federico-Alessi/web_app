@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function useGetPlants({ category, plantName, limit, reloadTrigger=null }) {
+export function useGetPlants({ id, category, plantName, limit, reloadTrigger=null }) {
     const [plants, setPlants] = useState([])
     const [loading, setLoading] = useState(false)
     //PlantFilters
@@ -11,9 +11,14 @@ export function useGetPlants({ category, plantName, limit, reloadTrigger=null })
     useEffect(() => {
         const fetchPlantsData = async () => {
             setLoading(true)
-            let url = `http://localhost:5000/plants?_limit=${limit}`
-            if (category) url += `&category=${category}`
-            if (plantName) url += `&plantName_like=${plantName}`
+            let url = `http://localhost:5000/plants`
+            if (id) {
+                url += `/${id}`
+            } else {
+                url += `?_limit=${limit}`
+                if (category) url += `&category=${category}`
+                if (plantName) url += `&plantName_like=${plantName}`
+            }
 
             try {
                 const response = await fetch(url);
@@ -27,7 +32,7 @@ export function useGetPlants({ category, plantName, limit, reloadTrigger=null })
         };
 
         fetchPlantsData();
-    }, [category, plantName, limit, reloadTrigger]);
+    }, [category, plantName, limit, reloadTrigger, id]);
 
     return { plants, loading }
 }

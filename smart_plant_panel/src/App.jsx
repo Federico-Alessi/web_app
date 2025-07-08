@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import Layout from "./Layout/Layout";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import PlantDetails from "./pages/PlantDetails";
 
 function App() {
   // Define the routes for the application
@@ -22,6 +23,7 @@ function App() {
             <Route path="/nursery" element={<MyNursery />}></Route>
             <Route path="/browse" element={<BrowsePlants />}></Route>
             <Route path="/admin" element={<AdminDashboard />}></Route>
+            <Route path="/browse/:plantId" element={<PlantDetails />}></Route>
           </Route>
           <Route path="Login" element={<Login />}></Route>
           <Route path="*" element={<NotFound />}></Route>
