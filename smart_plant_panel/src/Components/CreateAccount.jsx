@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { LogIn } from "../redux/LoginActions";
-import { userSignUp } from "../hooks/useUsers";
+import { userSignUp } from "../api/usersApi";
 
 const CreateAccount = () => {
     const navigate = useNavigate()

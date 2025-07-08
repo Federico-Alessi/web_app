@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import User from "./User";
 import { useGetUsers } from "../hooks/useUsers";
 import { SpinnerRoundOutlined } from "spinners-react";
-import { deleteUsers, setAdmin } from "../hooks/useUsers";
+import { deleteUsers, setAdmin } from "../api/usersApi";
 import BlankSpace from "./BlankSpace";
+import { Form } from "react-router";
 
 const ManageUsers = () => {
     const [displayUser, setDisplayUser] = useState(null)

@@ -36,6 +36,12 @@
       "email": "user@user.com",
       "password": "user",
       "isAdmin": false
+    },
+    {
+      "id": "1751975392645",
+      "username": "franco_battiato",
+      "email": "franco@ole.com",
+      "password": "sonofranco"
     }
   ]
 }
