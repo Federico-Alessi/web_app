@@ -1,16 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Plant from '../Components/Plant';
 import { useNavigate } from 'react-router';
 import { removeFromNursery } from '../redux/NurseryActions';
 import Alert from '@mui/material/Alert';
+import PlantFilters from '../Components/PlantFilters'
 
 const MyNursery = () => {
     const [selectedPlant, setSelectedPlant] = useState(null)
     const [flag, setFlag] = useState(false) //flag for the alert
     const myPlants = useSelector((state) => state.nursery.plants)
+    const [filteredPlants, setFilteredPlants] = useState(myPlants)
+    const [nameFilter, setNameFilter] = useState("")
+    const [categoryFilter, setCategoryFilter] = useState("")
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        let updatedPlants = myPlants
+
+        if (categoryFilter.length>0) {
+            updatedPlants = updatedPlants.filter(plant => plant.category == categoryFilter)
+            console.log('changed ', myPlants.filter(plant => plant.category == categoryFilter))
+        }
+
+        if (nameFilter.length>0) {
+            updatedPlants = updatedPlants.filter(plant => plant.plantName.toLowerCase().includes(nameFilter.toLowerCase()))
+            console.log('filtered name')
+        }
+
+        setFilteredPlants(updatedPlants)
+
+    }, [categoryFilter, nameFilter, myPlants])
 
     const removeHandler = () => {
         dispatch(removeFromNursery(selectedPlant))
@@ -26,6 +47,7 @@ const MyNursery = () => {
             <>
                 {myPlants.length > 0 ? (
                     <>
+                        <PlantFilters setCategory={setCategoryFilter} setName={setNameFilter} />
                         <table>
                             <thead>
                                 <tr>
@@ -36,7 +58,7 @@ const MyNursery = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {myPlants.map((plant) => (
+                                {filteredPlants.map((plant) => (
                                     <tr key={plant.id}>
                                         <td>
                                             <p>{plant.plantName}</p>
