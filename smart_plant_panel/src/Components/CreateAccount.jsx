@@ -65,22 +65,6 @@ const CreateAccount = () => {
             const { message, loginFlag } = await userSignUp({ user })
             alert(message)
             if (loginFlag) dispatch(LogIn(email, password))
-            /*
-            try {
-                const response = await fetch(`http://localhost:5000/users`, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(user)
-                });
-                if (response.ok)
-                    dispatch(LogIn(email, password))
-                console.log(response)
-            } catch (e) {
-                alert("Something went wrong, please retry later")
-                console.log(e)
-                console.log(user)
-            }
-            */
         }
     }
 
@@ -90,7 +74,7 @@ const CreateAccount = () => {
 
     return (
         <div>
-            <h1>Create account</h1>
+            <h1>Create an account</h1>
             <form onSubmit={handleSubmit} id="login">
                 <label>
                     username: <br /><input

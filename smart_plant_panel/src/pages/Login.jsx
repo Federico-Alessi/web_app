@@ -5,7 +5,8 @@ import CreateAccount from "../Components/CreateAccount";
 const Login = () => {
     const [isNew, setIsNew] = useState(false)
 
-    function handleNewUser() {
+    function handleNewUser(e) {
+        e.preventDefault()
         isNew ? setIsNew(false) : setIsNew(true)
     }
 
@@ -14,12 +15,12 @@ const Login = () => {
             {isNew ? (
                 <>
                     <CreateAccount />
-                    <p>Already have an account? <a href="#" onClick={() => handleNewUser()}>Login</a></p>
+                    <p>Already have an account? <a href="#" onClick={(e) => handleNewUser(e)}>Login</a></p>
                 </>
             ) : (
                 <>
                     <LoginComponent />
-                    <p>New user? <a href="#" onClick={() => handleNewUser()}>Create an account</a></p>
+                    <p>New user? <a href="#" onClick={(e) => handleNewUser(e)}>Create an account</a></p>
                 </>
             )}
         </>
