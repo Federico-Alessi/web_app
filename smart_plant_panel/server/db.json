@@ -20,6 +20,181 @@
       "plantName": "Gaillardia",
       "category": "flower",
       "description": "Gaillardia is a perennial flower plant. from may to september this plant grows flowers similar to daisies, but in colors ranging from yellow, to red and brown. Impollinators love them."
+    },
+    {
+      "id": "1751408556210",
+      "image": "images/Sansevieria_trifasciata.jpg",
+      "plantName": "Sansevieria Trifasciata",
+      "category": "greenplant",
+      "description": "Sansevieria Trifasciata, also known as Snake Plant or Mother-in-Law's Tongue, is an extremely resilient plant.\nIt thrives in low light and requires minimal watering, making it ideal for beginners and offices."
+    },
+    {
+      "id": "1751408664321",
+      "image": "images/Ficus_elastica.jpg",
+      "plantName": "Ficus Elastica",
+      "category": "greenplant",
+      "description": "Ficus Elastica, commonly known as the Rubber Plant, is a popular indoor plant with thick, glossy leaves.\nIt prefers bright, indirect light and moderate watering.\nIt also helps purify indoor air."
+    },
+    {
+      "id": "1751408789902",
+      "image": "images/Lavandula_angustifolia.jpg",
+      "plantName": "Lavandula Angustifolia",
+      "category": "flower",
+      "description": "Lavandula Angustifolia, or English Lavender, is a fragrant flowering plant.\nIt blooms in summer and is great for pollinators.\nIt prefers full sun and well-drained soil."
+    },
+    {
+      "id": "1751408890044",
+      "image": "images/Calathea_orbifolia.jpg",
+      "plantName": "Calathea Orbifolia",
+      "category": "greenplant",
+      "description": "Calathea Orbifolia is known for its large, striped leaves.\nIt enjoys high humidity and indirect light.\nCalatheas are non-toxic to pets and make excellent decorative plants for indoor spaces."
+    },
+    {
+      "id": "1751409015550",
+      "image": "images/Hibiscus_rosa-sinensis.jpg",
+      "plantName": "Hibiscus Rosa-Sinensis",
+      "category": "flower",
+      "description": "Hibiscus Rosa-Sinensis is a tropical flowering plant known for its large, vibrant blooms.\nIt thrives in sunny locations and needs regular watering during its growing season.\nGreat for patios and balconies."
+    },
+    {
+      "id": "1751409111111",
+      "image": "images/Echeveria_elegans.jpg",
+      "plantName": "Echeveria Elegans",
+      "category": "succulent",
+      "description": "Echeveria Elegans, also known as Mexican Snowball, is a rosette-forming succulent.\nIt prefers bright sunlight and requires very little water.\nPerfect for rock gardens or indoor pots."
+    },
+    {
+      "id": "1751409112222",
+      "image": "images/Haworthia_fasciata.jpg",
+      "plantName": "Haworthia Fasciata",
+      "category": "succulent",
+      "description": "Haworthia Fasciata, or Zebra Plant, is a small succulent with white horizontal stripes on its leaves.\nIt thrives in bright, indirect light and needs infrequent watering."
+    },
+    {
+      "id": "1751409113333",
+      "image": "images/Sedum_morganianum.jpg",
+      "plantName": "Sedum Morganianum",
+      "category": "succulent",
+      "description": "Sedum Morganianum, also called Burro's Tail, is a trailing succulent ideal for hanging pots.\nIt prefers dry conditions and bright light."
+    },
+    {
+      "id": "1751409114444",
+      "image": "images/Graptopetalum_paraguayense.jpg",
+      "plantName": "Graptopetalum Paraguayense",
+      "category": "succulent",
+      "description": "Also known as Ghost Plant, Graptopetalum Paraguayense has pale, pastel-colored leaves.\nIt’s drought-tolerant and great for container arrangements."
+    },
+    {
+      "id": "1751409115555",
+      "image": "images/Crassula_ovata.jpg",
+      "plantName": "Crassula Ovata",
+      "category": "succulent",
+      "description": "Commonly known as the Jade Plant, Crassula Ovata is a hardy succulent with shiny, oval-shaped leaves.\nIt’s often grown as a houseplant and can live for decades."
+    },
+    {
+      "id": "1751409116666",
+      "image": "images/Kalanchoe_tomentosa.jpg",
+      "plantName": "Kalanchoe Tomentosa",
+      "category": "succulent",
+      "description": "Kalanchoe Tomentosa, or Panda Plant, has fuzzy, gray-green leaves with brown tips.\nIt’s low-maintenance and suitable for dry indoor environments."
+    },
+    {
+      "id": "1751409117777",
+      "image": "images/Aeonium_arboreum.jpg",
+      "plantName": "Aeonium Arboreum",
+      "category": "succulent",
+      "description": "Aeonium Arboreum forms beautiful rosettes of fleshy leaves.\nIt prefers mild climates and bright, indirect sunlight."
+    },
+    {
+      "id": "1751409118888",
+      "image": "images/Adromischus_cristatus.jpg",
+      "plantName": "Adromischus Cristatus",
+      "category": "succulent",
+      "description": "Adromischus Cristatus, or Crinkle-Leaf Plant, is a compact succulent with unique wavy leaves.\nIt thrives on minimal water and good air circulation."
+    },
+    {
+      "id": "1751409119999",
+      "image": "images/Portulacaria_afra.jpg",
+      "plantName": "Portulacaria Afra",
+      "category": "succulent",
+      "description": "Also known as Elephant Bush, Portulacaria Afra is a fast-growing succulent that resembles a miniature tree.\nIt can be used in bonsai or hanging planters."
+    },
+    {
+      "id": "1751409120000",
+      "image": "images/Sempervivum_tectorum.jpg",
+      "plantName": "Sempervivum Tectorum",
+      "category": "succulent",
+      "description": "Sempervivum Tectorum, or Hen and Chicks, forms rosettes with smaller offshoots.\nIt’s cold-hardy and perfect for outdoor succulent gardens."
+    },
+    {
+      "id": "1751409200001",
+      "image": "images/Anthurium_andraeanum.jpg",
+      "plantName": "Anthurium Andraeanum",
+      "category": "flower",
+      "description": "Anthurium Andraeanum, known as Flamingo Flower, has glossy green leaves and vibrant red or pink spathes. It's grown for both foliage and long-lasting flowers."
+    },
+    {
+      "id": "1751409200002",
+      "image": "images/Spathiphyllum_wallisii.jpg",
+      "plantName": "Spathiphyllum Wallisii",
+      "category": "greenplant",
+      "description": "Also known as Peace Lily, Spathiphyllum Wallisii features lush foliage and elegant white blooms. It thrives in low light and purifies indoor air."
+    },
+    {
+      "id": "1751409200003",
+      "image": "images/Clivia_miniata.jpg",
+      "plantName": "Clivia Miniata",
+      "category": "greenplant",
+      "description": "Clivia Miniata offers strap-shaped green leaves and vibrant orange flowers. It's prized for both its attractive foliage and seasonal blooms."
+    },
+    {
+      "id": "1751409200004",
+      "image": "images/Chlorophytum_comosum.jpg",
+      "plantName": "Chlorophytum Comosum",
+      "category": "greenplant",
+      "description": "Commonly called Spider Plant, it produces arching green leaves with white stripes and tiny white flowers. It’s hardy, easy to propagate, and pet-friendly."
+    },
+    {
+      "id": "1751409200005",
+      "image": "images/Hoya_carnosa.jpg",
+      "plantName": "Hoya Carnosa",
+      "category": "greenplant",
+      "description": "Hoya Carnosa, or Wax Plant, features thick green leaves and clusters of fragrant star-shaped flowers. It’s a slow grower, ideal for hanging baskets."
+    },
+    {
+      "id": "1751409200006",
+      "image": "images/Oxalis_triangularis.jpg",
+      "plantName": "Oxalis Triangularis",
+      "category": "flower",
+      "description": "Oxalis Triangularis has striking purple foliage and delicate white or pink flowers. Its shamrock-like leaves open and close with light changes."
+    },
+    {
+      "id": "1751409200007",
+      "image": "images/Streptocarpus_saxorum.jpg",
+      "plantName": "Streptocarpus Saxorum",
+      "category": "flower",
+      "description": "Streptocarpus Saxorum, or Cape Primrose, features fuzzy green leaves and violet-blue trumpet flowers. It blooms frequently in the right conditions."
+    },
+    {
+      "id": "1751409200008",
+      "image": "images/Caladium_bicolor.jpg",
+      "plantName": "Caladium Bicolor",
+      "category": "greenplant",
+      "description": "Caladium Bicolor is grown for its colorful, heart-shaped leaves with red, pink, and white patterns. Though rarely, it can produce flowers."
+    },
+    {
+      "id": "1751409200009",
+      "image": "images/Impatiens_walleriana.jpg",
+      "plantName": "Impatiens Walleriana",
+      "category": "flower",
+      "description": "Impatiens Walleriana is a shade-loving flowering plant with soft foliage and vibrant blooms in various colors, perfect for beds or pots."
+    },
+    {
+      "id": "1751409200010",
+      "image": "images/Tradescantia_zebrina.jpg",
+      "plantName": "Tradescantia Zebrina",
+      "category": "greenplant",
+      "description": "Tradescantia Zebrina has trailing purple-and-green striped leaves and small pink flowers. It's fast-growing and eye-catching indoors or in hanging pots."
     }
   ],
   "users": [
