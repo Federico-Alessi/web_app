@@ -85,6 +85,11 @@ img {
   margin: 0px auto;
 }
 
+#plant-pic {
+  max-width: 40%;
+  max-height: 50em;
+}
+
 p {
   text-align: left;
 }

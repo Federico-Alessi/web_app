@@ -5,196 +5,196 @@
       "image": "images/Monstera_adansonii.jpg",
       "plantName": "Monstera Adansonii",
       "category": "greenplant",
-      "description": "Monstera Adansonii is a tropical plant from the monstera family.\nIt is similar to her sister, the Monstera Deliciosa, but it features smaller leaves.\nMonstera Adansonii is a perfect plant for beginners."
+      "description": "Monstera Adansonii, commonly known as the Swiss Cheese Vine, is a beautiful tropical climbing plant native to Central and South America. It is admired for its unique, perforated leaves that resemble Swiss cheese. This plant grows well in bright, indirect light and thrives in humid environments. Its manageable size and minimal care needs make it an excellent choice for novice plant enthusiasts looking to add a dramatic, exotic touch to indoor spaces."
     },
     {
       "id": "1751403751087",
       "image": "images/Pilea_peperomioides.jpg",
       "plantName": "Pilea Peperomioides",
       "category": "greenplant",
-      "description": "Pilea Peperomioides is a green plant typically from China.\nIt requires a well drained soil and loves a partial shade.\nPilea Peperomioides can be reproduced either by propagation or by root division."
+      "description": "Pilea Peperomioides, often called the Chinese Money Plant, is a visually appealing houseplant with round, coin-like leaves that grow on upright stems. Native to southern China, this plant prefers bright, indirect sunlight and a well-draining soil mix. It's particularly popular for its ease of propagation—producing baby plants at the base that can be shared. Ideal for shelves or tabletops, it adds a charming modern flair to any interior."
     },
     {
       "id": "1751407338945",
-      "image": "600x400.png",
-      "plantName": "Gaillardia",
+      "image": "images/Gaillardia_grandiflora.jpg",
+      "plantName": "Gaillardia grandiflora",
       "category": "flower",
-      "description": "Gaillardia is a perennial flower plant. from may to september this plant grows flowers similar to daisies, but in colors ranging from yellow, to red and brown. Impollinators love them."
+      "description": "Gaillardia grandiflora, or Blanket Flower, is a long-blooming perennial known for its vivid, daisy-like flowers in striking shades of red, orange, and yellow. Blooming from late spring through early fall, it attracts pollinators such as bees and butterflies. This low-maintenance plant tolerates drought and thrives in sunny locations with well-drained soil, making it a favorite for borders, wildflower gardens, and pollinator-friendly landscapes."
     },
     {
       "id": "1751408556210",
       "image": "images/Sansevieria_trifasciata.jpg",
       "plantName": "Sansevieria Trifasciata",
       "category": "greenplant",
-      "description": "Sansevieria Trifasciata, also known as Snake Plant or Mother-in-Law's Tongue, is an extremely resilient plant.\nIt thrives in low light and requires minimal watering, making it ideal for beginners and offices."
+      "description": "Sansevieria Trifasciata, also known as the Snake Plant or Mother-in-Law’s Tongue, is a striking and resilient plant recognized for its upright, sword-like leaves with bold green variegation. It tolerates low light and infrequent watering, making it ideal for indoor spaces like offices or bedrooms. In addition to its hardiness, it also improves indoor air quality by filtering toxins from the air."
     },
     {
       "id": "1751408664321",
       "image": "images/Ficus_elastica.jpg",
       "plantName": "Ficus Elastica",
       "category": "greenplant",
-      "description": "Ficus Elastica, commonly known as the Rubber Plant, is a popular indoor plant with thick, glossy leaves.\nIt prefers bright, indirect light and moderate watering.\nIt also helps purify indoor air."
+      "description": "Ficus Elastica, commonly known as the Rubber Plant, is a robust indoor plant celebrated for its broad, glossy leaves that range from deep green to burgundy. Native to Southeast Asia, this plant thrives in bright, indirect light and requires moderate watering. Known for its air-purifying abilities and fast growth, it's a stylish and easy-care addition to any living room or office."
     },
     {
       "id": "1751408789902",
       "image": "images/Lavandula_angustifolia.jpg",
       "plantName": "Lavandula Angustifolia",
       "category": "flower",
-      "description": "Lavandula Angustifolia, or English Lavender, is a fragrant flowering plant.\nIt blooms in summer and is great for pollinators.\nIt prefers full sun and well-drained soil."
+      "description": "Lavandula Angustifolia, or English Lavender, is a beloved aromatic herb known for its fragrant purple-blue blooms and silvery foliage. It flourishes in full sun and well-drained soil, making it ideal for Mediterranean-style gardens or as a border plant. Blooming in summer, it attracts bees and butterflies and is commonly used for dried flower arrangements, essential oils, and sachets."
     },
     {
       "id": "1751408890044",
       "image": "images/Calathea_orbifolia.jpg",
       "plantName": "Calathea Orbifolia",
       "category": "greenplant",
-      "description": "Calathea Orbifolia is known for its large, striped leaves.\nIt enjoys high humidity and indirect light.\nCalatheas are non-toxic to pets and make excellent decorative plants for indoor spaces."
+      "description": "Calathea Orbifolia is a visually striking tropical plant cherished for its large, round leaves adorned with silver and green stripes. Native to Bolivia, this plant thrives in high humidity and low to medium indirect light. It's perfect for adding an exotic and elegant touch to interiors, and as a bonus, it is non-toxic to pets, making it a safe choice for households with animals."
     },
     {
       "id": "1751409015550",
       "image": "images/Hibiscus_rosa-sinensis.jpg",
       "plantName": "Hibiscus Rosa-Sinensis",
       "category": "flower",
-      "description": "Hibiscus Rosa-Sinensis is a tropical flowering plant known for its large, vibrant blooms.\nIt thrives in sunny locations and needs regular watering during its growing season.\nGreat for patios and balconies."
+      "description": "Hibiscus Rosa-Sinensis, known as the Tropical Hibiscus, produces large, vibrant blooms in a wide array of colors, including red, pink, orange, and yellow. Native to Asia, this flowering shrub prefers full sunlight and consistently moist soil. It's perfect for patios, balconies, or sunny windowsills, and its eye-catching flowers make it a popular choice for tropical-themed gardens."
     },
     {
       "id": "1751409111111",
       "image": "images/Echeveria_elegans.jpg",
       "plantName": "Echeveria Elegans",
       "category": "succulent",
-      "description": "Echeveria Elegans, also known as Mexican Snowball, is a rosette-forming succulent.\nIt prefers bright sunlight and requires very little water.\nPerfect for rock gardens or indoor pots."
+      "description": "Echeveria Elegans, also called the Mexican Snowball, is a charming rosette-forming succulent with pale bluish-green leaves. It thrives in full sunlight and requires very little water, making it ideal for sunny windowsills or rock gardens. Easy to propagate and low-maintenance, it's a staple in succulent collections and container arrangements."
     },
     {
       "id": "1751409112222",
       "image": "images/Haworthia_fasciata.jpg",
       "plantName": "Haworthia Fasciata",
       "category": "succulent",
-      "description": "Haworthia Fasciata, or Zebra Plant, is a small succulent with white horizontal stripes on its leaves.\nIt thrives in bright, indirect light and needs infrequent watering."
+      "description": "Haworthia Fasciata, or Zebra Plant, is a small, compact succulent with thick, pointed leaves and distinctive white horizontal stripes. Native to South Africa, this plant is perfect for beginners due to its low care requirements. It prefers bright, indirect light and minimal watering, and it's an attractive addition to desks, shelves, or terrariums."
     },
     {
       "id": "1751409113333",
       "image": "images/Sedum_morganianum.jpg",
       "plantName": "Sedum Morganianum",
       "category": "succulent",
-      "description": "Sedum Morganianum, also called Burro's Tail, is a trailing succulent ideal for hanging pots.\nIt prefers dry conditions and bright light."
+      "description": "Sedum Morganianum, also known as Burro's Tail or Donkey's Tail, is a trailing succulent with plump, bluish-green leaves that grow in cascading chains. Ideal for hanging baskets, it thrives in bright light and prefers to be kept on the dry side. Its unique appearance makes it a standout plant in succulent arrangements."
     },
     {
       "id": "1751409114444",
       "image": "images/Graptopetalum_paraguayense.jpg",
       "plantName": "Graptopetalum Paraguayense",
       "category": "succulent",
-      "description": "Also known as Ghost Plant, Graptopetalum Paraguayense has pale, pastel-colored leaves.\nIt’s drought-tolerant and great for container arrangements."
+      "description": "Graptopetalum Paraguayense, commonly called Ghost Plant, is a drought-tolerant succulent with rosettes of pale grayish-lavender leaves. It changes color depending on sun exposure and can range from bluish-green to pinkish hues. It's ideal for outdoor rockeries or sunny windowsills and is extremely easy to propagate by leaf cuttings."
     },
     {
       "id": "1751409115555",
       "image": "images/Crassula_ovata.jpg",
       "plantName": "Crassula Ovata",
       "category": "succulent",
-      "description": "Commonly known as the Jade Plant, Crassula Ovata is a hardy succulent with shiny, oval-shaped leaves.\nIt’s often grown as a houseplant and can live for decades."
+      "description": "Crassula Ovata, better known as the Jade Plant, is a classic succulent with thick, shiny, oval leaves and a tree-like form. Native to South Africa, it's often associated with good luck and prosperity. It thrives in bright light and tolerates neglect, making it an excellent choice for both novice and experienced plant owners."
     },
     {
       "id": "1751409116666",
       "image": "images/Kalanchoe_tomentosa.jpg",
       "plantName": "Kalanchoe Tomentosa",
       "category": "succulent",
-      "description": "Kalanchoe Tomentosa, or Panda Plant, has fuzzy, gray-green leaves with brown tips.\nIt’s low-maintenance and suitable for dry indoor environments."
+      "description": "Kalanchoe Tomentosa, commonly referred to as the Panda Plant, features fuzzy, gray-green leaves with chocolate-brown edges. Native to Madagascar, this charming succulent enjoys plenty of sunlight and minimal watering. Its soft texture and compact form make it ideal for small pots and sunny windowsills."
     },
     {
       "id": "1751409117777",
       "image": "images/Aeonium_arboreum.jpg",
       "plantName": "Aeonium Arboreum",
       "category": "succulent",
-      "description": "Aeonium Arboreum forms beautiful rosettes of fleshy leaves.\nIt prefers mild climates and bright, indirect sunlight."
+      "description": "Aeonium Arboreum is a unique succulent that forms rosettes of glossy, fleshy leaves on tall, woody stems. It thrives in mild, Mediterranean-like climates and prefers bright but not overly intense sunlight. Often used in xeriscaping, this plant adds bold structure to succulent gardens and container"
     },
     {
       "id": "1751409118888",
       "image": "images/Adromischus_cristatus.jpg",
       "plantName": "Adromischus Cristatus",
       "category": "succulent",
-      "description": "Adromischus Cristatus, or Crinkle-Leaf Plant, is a compact succulent with unique wavy leaves.\nIt thrives on minimal water and good air circulation."
+      "description": "Adromischus Cristatus, commonly called the Crinkle-Leaf Plant, is a compact succulent prized for its thick, fleshy leaves with wavy, ruffled edges. Native to South Africa, this quirky plant thrives in bright light and well-drained soil. Its low water requirements and unique leaf texture make it a standout choice for succulent arrangements or small pots on sunny windowsills."
     },
     {
       "id": "1751409119999",
       "image": "images/Portulacaria_afra.jpg",
       "plantName": "Portulacaria Afra",
       "category": "succulent",
-      "description": "Also known as Elephant Bush, Portulacaria Afra is a fast-growing succulent that resembles a miniature tree.\nIt can be used in bonsai or hanging planters."
+      "description": "Portulacaria Afra, also known as Elephant Bush or Dwarf Jade Plant, is a versatile succulent that resembles a miniature tree with reddish stems and small, round green leaves. Native to southern Africa, it's often used in bonsai and can be grown upright or trailing. It’s drought-tolerant, fast-growing, and ideal for both indoor pots and hanging planters."
     },
     {
       "id": "1751409120000",
       "image": "images/Sempervivum_tectorum.jpg",
       "plantName": "Sempervivum Tectorum",
       "category": "succulent",
-      "description": "Sempervivum Tectorum, or Hen and Chicks, forms rosettes with smaller offshoots.\nIt’s cold-hardy and perfect for outdoor succulent gardens."
+      "description": "Sempervivum Tectorum, commonly known as Hen and Chicks, is a cold-hardy succulent that forms dense rosettes surrounded by smaller offsets. Native to European mountain regions, it thrives in poor, rocky soil and requires minimal care. Its resilience to frost and drought makes it perfect for outdoor rock gardens, green roofs, or decorative containers."
     },
     {
       "id": "1751409200001",
       "image": "images/Anthurium_andraeanum.jpg",
       "plantName": "Anthurium Andraeanum",
       "category": "flower",
-      "description": "Anthurium Andraeanum, known as Flamingo Flower, has glossy green leaves and vibrant red or pink spathes. It's grown for both foliage and long-lasting flowers."
+      "description": "Anthurium Andraeanum, known as the Flamingo Flower or Laceleaf, is an elegant tropical plant prized for its glossy, heart-shaped leaves and long-lasting, waxy red or pink spathes. It blooms year-round in the right conditions and prefers bright, indirect light with moderate humidity. This plant adds a bold, exotic flair to interiors and is also popular as a cut flower."
     },
     {
       "id": "1751409200002",
       "image": "images/Spathiphyllum_wallisii.jpg",
       "plantName": "Spathiphyllum Wallisii",
       "category": "greenplant",
-      "description": "Also known as Peace Lily, Spathiphyllum Wallisii features lush foliage and elegant white blooms. It thrives in low light and purifies indoor air."
+      "description": "Spathiphyllum Wallisii, more commonly called the Peace Lily, is a graceful indoor plant with deep green foliage and elegant white, sail-like flowers. Ideal for low-light spaces, it also purifies the air by removing toxins. With moderate watering and minimal care, it blooms multiple times a year and brings a sense of calm and serenity to homes and offices."
     },
     {
       "id": "1751409200003",
       "image": "images/Clivia_miniata.jpg",
       "plantName": "Clivia Miniata",
       "category": "greenplant",
-      "description": "Clivia Miniata offers strap-shaped green leaves and vibrant orange flowers. It's prized for both its attractive foliage and seasonal blooms."
+      "description": "Clivia Miniata is a shade-loving, evergreen plant known for its strap-like, dark green leaves and striking clusters of orange, trumpet-shaped flowers. Native to South Africa, it blooms in late winter to spring, often becoming a showpiece in shaded patios or interiors. Low-maintenance and long-lived, it thrives with minimal watering and no direct sunlight."
     },
     {
       "id": "1751409200004",
       "image": "images/Chlorophytum_comosum.jpg",
       "plantName": "Chlorophytum Comosum",
       "category": "greenplant",
-      "description": "Commonly called Spider Plant, it produces arching green leaves with white stripes and tiny white flowers. It’s hardy, easy to propagate, and pet-friendly."
+      "description": "Chlorophytum Comosum, commonly called the Spider Plant, is a resilient and fast-growing houseplant that produces arching green leaves with white stripes. It forms cascading plantlets, or 'spiders,' which can be easily propagated. Pet-friendly and excellent at air purification, this plant is a popular choice for beginners and a staple in hanging baskets."
     },
     {
       "id": "1751409200005",
       "image": "images/Hoya_carnosa.jpg",
       "plantName": "Hoya Carnosa",
       "category": "greenplant",
-      "description": "Hoya Carnosa, or Wax Plant, features thick green leaves and clusters of fragrant star-shaped flowers. It’s a slow grower, ideal for hanging baskets."
+      "description": "Hoya Carnosa, often referred to as the Wax Plant, is a slow-growing vine with thick, glossy green leaves and clusters of star-shaped, fragrant pink or white flowers. Native to Southeast Asia, it thrives in hanging baskets or trellises and prefers bright, indirect light. Its minimal care needs and beautiful, waxy blooms make it a favorite among indoor plant collectors."
     },
     {
       "id": "1751409200006",
       "image": "images/Oxalis_triangularis.jpg",
       "plantName": "Oxalis Triangularis",
       "category": "flower",
-      "description": "Oxalis Triangularis has striking purple foliage and delicate white or pink flowers. Its shamrock-like leaves open and close with light changes."
+      "description": "Oxalis Triangularis, also known as the Purple Shamrock, is a striking ornamental plant with deep purple, triangular leaves that open and close in response to light. Delicate white or pink flowers bloom periodically, adding contrast to its bold foliage. Perfect for bright indoor spots, it’s easy to care for and brings dynamic movement and color to any room."
     },
     {
       "id": "1751409200007",
       "image": "images/Streptocarpus_saxorum.jpg",
       "plantName": "Streptocarpus Saxorum",
       "category": "flower",
-      "description": "Streptocarpus Saxorum, or Cape Primrose, features fuzzy green leaves and violet-blue trumpet flowers. It blooms frequently in the right conditions."
+      "description": "Streptocarpus Saxorum, known as Cape Primrose, is a compact flowering plant with soft, fuzzy green leaves and a profusion of violet-blue trumpet-shaped flowers. Native to Tanzania, it blooms consistently under bright, filtered light and moderate humidity. With a long flowering season and manageable size, it's perfect for windowsills and decorative pots."
     },
     {
       "id": "1751409200008",
       "image": "images/Caladium_bicolor.jpg",
       "plantName": "Caladium Bicolor",
       "category": "greenplant",
-      "description": "Caladium Bicolor is grown for its colorful, heart-shaped leaves with red, pink, and white patterns. Though rarely, it can produce flowers."
+      "description": "Caladium Bicolor is a vibrant tropical foliage plant admired for its large, heart-shaped leaves splashed with bold patterns in shades of pink, red, white, and green. While rarely flowering, its colorful leaves provide dramatic visual interest. It thrives in warm, humid environments and bright, indirect light, making it ideal for summer containers or bright interiors."
     },
     {
       "id": "1751409200009",
       "image": "images/Impatiens_walleriana.jpg",
       "plantName": "Impatiens Walleriana",
       "category": "flower",
-      "description": "Impatiens Walleriana is a shade-loving flowering plant with soft foliage and vibrant blooms in various colors, perfect for beds or pots."
+      "description": "Impatiens Walleriana is a popular shade-loving annual that produces masses of colorful blooms in shades of red, pink, purple, and white. With soft green foliage and a compact growth habit, it's ideal for garden beds, borders, or containers. It prefers consistently moist soil and adds vibrant color to shady outdoor areas throughout the growing season."
     },
     {
       "id": "1751409200010",
       "image": "images/Tradescantia_zebrina.jpg",
       "plantName": "Tradescantia Zebrina",
       "category": "greenplant",
-      "description": "Tradescantia Zebrina has trailing purple-and-green striped leaves and small pink flowers. It's fast-growing and eye-catching indoors or in hanging pots."
+      "description": "Tradescantia Zebrina, commonly called Wandering Jew or Inch Plant, is a fast-growing trailing plant with striking purple and green striped leaves that have a silvery sheen. It produces small pink or lavender flowers and is perfect for hanging baskets or shelf edges. Easy to propagate and tolerant of various conditions, it adds dynamic color to indoor plant displays."
     }
   ],
   "users": [
