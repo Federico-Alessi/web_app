@@ -19,6 +19,7 @@ const PlantDetails = () => {
     const [message, setMessage] = useState('')
     const userId = useSelector(state => state.user.id)
 
+
     // add plant to user and local nursery
     const addHandler = async () => {
 
@@ -27,11 +28,13 @@ const PlantDetails = () => {
         if (userId) {
             const userNursery = await addToUserNursery({ userId: userId, plantId: plantId })
             setErrorFlag(!userNursery)
+
             if (errorFlag) {
                 setMessage('Error while adding the plant to your personal database')
                 setTimeout(() => { setErrorFlag(false) }, 5000)
             }
         }
+
         if (!errorFlag) {
             setMessage(result.message)
             setInfoFlag(true)
@@ -39,11 +42,14 @@ const PlantDetails = () => {
         }
     }
 
+
     return (
         <>
             {errorFlag && <Alert severity='error' onClose={() => { setErrorFlag(false) }} id='alert'>{message}</Alert>}
             {infoFlag && <Alert severity='info' onClose={() => { setInfoFlag(false) }} id='alert'>{message}</Alert>}
+
             <BlankSpace />
+
             {loading && <SpinnerRoundOutlined />}
             {!loading && (
                 <>

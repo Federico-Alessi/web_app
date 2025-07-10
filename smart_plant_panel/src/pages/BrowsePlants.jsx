@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router';
 const BrowsePlants = () => {
     const navigate = useNavigate()
 
+
     const showDetailsHandler = (plant) => {
         navigate(`/browse/${plant.id}`)
     }
+
 
     return (
         <div>

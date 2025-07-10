@@ -14,6 +14,7 @@ const ManagePlants = () => {
     const [password, setPassword] = useState('')
     const username = useSelector((state) => state.user.username)
 
+
     const handleRemovePlant = async (e) => {
         e.preventDefault()
         const isVerified = await verifyLoggedUser({ username: username, rawPassword: password })
@@ -24,10 +25,12 @@ const ManagePlants = () => {
             alert(removal)
             setReloadPlants(state => !state)
             setSelectedPlant(null)
+
         } else {
             alert('Incorrect password')
         }
     }
+
 
     return (
         <>
@@ -47,6 +50,8 @@ const ManagePlants = () => {
                     </form>
                 </div>
             }
+
+
             {editPlant ? (
                 <>
                     <EditPlants plant={selectedPlant} onFinishEditing={(updatedPlant) => {
@@ -54,6 +59,8 @@ const ManagePlants = () => {
                         setEditPlant(null)
                     }} />
                 </>
+
+
             ) : (
                 <>
                     <FetchPlants onSelectPlant={setSelectedPlant} trigger={reloadPlants} />

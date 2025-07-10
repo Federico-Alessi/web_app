@@ -8,6 +8,7 @@ const initialState = {
 
 const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
+
         case "LOGOUT":
             return {
                 ...state,
@@ -17,6 +18,7 @@ const LoginReducer = (state = initialState, action) => {
                 email: null,
                 nursery: []
             }
+
         case "LOGIN":
             return {
                 ...state,
@@ -26,21 +28,25 @@ const LoginReducer = (state = initialState, action) => {
                 email: action.payload.email,
                 nursery: action.payload.nursery
             }
+
         case "REMOVE":
             return {
                 ...state,
                 nursery: state.nursery.filter(plantId => plantId != action.payload.id)
             }
+
         case "REMOVE-ID":
             return {
                 ...state,
                 nursery: state.nursery.filter(plantId => plantId != action.payload)
             }
+
         case "ADD":
             return {
                 ...state,
                 nursery: [...state.nursery, action.payload.id],
             }
+
         default:
             return state;
     }

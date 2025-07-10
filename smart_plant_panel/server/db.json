@@ -240,6 +240,14 @@
       "password": "test",
       "idAdmin": false,
       "nursery": []
+    },
+    {
+      "id": "1752166207778",
+      "username": "franca",
+      "email": "franca@giammail.com",
+      "password": "hello",
+      "idAdmin": false,
+      "nursery": []
     }
   ]
 }

@@ -14,6 +14,7 @@ const Navbar = () => {
     dispatch(logOut());
   }
 
+
   return (
     <header>
       <div>
@@ -21,20 +22,24 @@ const Navbar = () => {
           Home
         </NavLink>
       </div>
+
       <div>
         <NavLink to="/nursery">My Nursery</NavLink>
       </div>
+
       {isAdmin && (
         <div>
           <NavLink to="/admin">Admin</NavLink>
         </div>
       )}
+
       {isLogged && (
         <div>
           <button onClick={handleLogout}>
             Logout
           </button>
         </div>
+
       )}
       {!isLogged && (
         <div>

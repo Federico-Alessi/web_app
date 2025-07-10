@@ -23,9 +23,8 @@ function App() {
             <Route path="/admin" element={<AdminDashboard />}></Route>
             <Route path="/browse/:plantId" element={<PlantDetails />}></Route>
           </Route>
-          <Route path="Login" element={<Login />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="*" element={<NotFound />}></Route>
-          // TODO add 404 page
         </Routes>
       </Provider>
     </>

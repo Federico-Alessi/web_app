@@ -5,13 +5,12 @@ import { useNavigate } from 'react-router';
 
 const Home = () => {
     const isLogged = useSelector((state) => state.user.username)
-
     const navigate = useNavigate()
+
 
     const showDetailsHandler = (plant) => {
         navigate(`/browse/${plant.id}`)
     }
-
 
 
     return (
@@ -22,6 +21,7 @@ const Home = () => {
                     <h1>Welcome to Smart Plant Panel!</h1>
                 }
             </div>
+
             <div>
                 <br />
                 <FetchPlants onSelectPlant={(plant) => showDetailsHandler(plant)} />

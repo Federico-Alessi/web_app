@@ -11,6 +11,7 @@ import { removeFromUserNursery } from '../api/usersApi';
 import { SpinnerRoundOutlined } from 'spinners-react';
 import { removeIdFromUsrNursery } from '../redux/LoginActions'
 
+
 const MyNursery = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -31,21 +32,19 @@ const MyNursery = () => {
     useEffect(() => {
 
         const userNurseryToLocal = async () => {
-            if (userNursery) {
-                for (const plantId of userNursery) {
+            for (const plantId of userNursery) {
 
-                    const plant = await getPlantById(plantId)
+                const plant = await getPlantById(plantId)
 
-                    if (plant) {
-                        dispatch(addToNursery(plant))
-                    } else {
-                        dispatch(removeIdFromUsrNursery({ plantId: plantId, userId: userId }))
-                    }
+                if (plant) {
+                    dispatch(addToNursery(plant))
+                } else {
+                    dispatch(removeIdFromUsrNursery({ plantId: plantId, userId: userId }))
                 }
             }
         }
         setLoading(true)
-        userNurseryToLocal()
+        userNursery && userNurseryToLocal()
         setLoading(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userNursery, dispatch])
@@ -94,11 +93,14 @@ const MyNursery = () => {
         <div>
             {infoFlag && <Alert severity='info' onClose={() => { setInfoFlag(false) }} id='alert'>{message}</Alert>}
             {errorFlag && <Alert severity='error' onClose={() => { setErrorFlag(false) }} id='alert'>{message}</Alert>}
+
+
             <h1>Nursery</h1>
             <>
                 {myPlants.length > 0 ? (
                     <>
                         <PlantFilters setCategory={setCategoryFilter} setName={setNameFilter} />
+
                         {loading && <SpinnerRoundOutlined />}
                         {!loading &&
                             <table>
@@ -134,6 +136,7 @@ const MyNursery = () => {
                                 </tbody>
                             </table>
                         }
+
                         {selectedPlant &&
                             <div className="display-overlay">
                                 <Plant plant={selectedPlant} onExit={setSelectedPlant} />
@@ -141,6 +144,8 @@ const MyNursery = () => {
                             </div>
                         }
                     </>
+
+
                 ) : (
                     <p>No plants in your nursery yet. Visit <u style={{ cursor: "pointer" }} onClick={() => navigate("/browse")}>Browse Plants</u></p>
                 )}

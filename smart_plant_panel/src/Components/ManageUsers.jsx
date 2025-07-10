@@ -9,23 +9,13 @@ import { Form } from "react-router";
 const ManageUsers = () => {
     const [displayUser, setDisplayUser] = useState(null)
     const [limit, setLimit] = useState("10")
-    //const [users, setUsers] = useState([])
-    //const [loading, setLoading] = useState(false)
     const [selectedUsers, setSelectedUsers] = useState([])
     const [reloadFlag, setReloadFlag] = useState(false)
     const { users, loading } = useGetUsers({ limit: limit, reloadFlag: reloadFlag })
 
-    /*
-    useEffect(() => {
-        console.log(selectedUsers)
-        if (selectedUsers.length > 0) {
-            console.log(selectedUsers[0].toString())
-            console.log(selectedUsers[0])
-        }
-    }, [selectedUsers])
-    */
 
     const handleCheck = (userId) => {
+
         if (selectedUsers.includes(userId)) {
             setSelectedUsers(prev => prev.filter(id => id != userId))
         } else {
@@ -33,13 +23,16 @@ const ManageUsers = () => {
         }
     }
 
+
     const handleSelectAll = () => {
+
         if (selectedUsers.length < users.length) {
             setSelectedUsers(users.map(usr => usr.id))
         } else {
             setSelectedUsers([])
         }
     }
+
 
     const handleDelete = async () => {
         const deletion = await deleteUsers({ ids: selectedUsers })
@@ -49,8 +42,10 @@ const ManageUsers = () => {
         } else {
             alert(deletion)
         }
+
         setReloadFlag(reloadFlag => !reloadFlag)
     }
+
 
     const handleAdmin = async () => {
         const action = await setAdmin({ ids: selectedUsers })
@@ -60,13 +55,16 @@ const ManageUsers = () => {
         } else {
             alert(action)
         }
+
         setReloadFlag(reloadFlag => !reloadFlag)
     }
+
 
     return (
         <>
             {loading ? (
                 <SpinnerRoundOutlined />
+
             ) : (
                 <>
                     <table>
@@ -83,6 +81,7 @@ const ManageUsers = () => {
                             </tr>
                         </thead>
                         <tbody>
+
                             {users.map(user => (
                                 <tr key={user.id}>
                                     <td onClick={() => setDisplayUser(user)} className="underlined-clickable">{user.id}</td>
@@ -94,22 +93,24 @@ const ManageUsers = () => {
                                     </td>
                                 </tr>
                             ))}
+
                         </tbody>
                     </table>
+
                     <BlankSpace />
                     <button onClick={() => setLimit(prev => (Number(prev) + 20).toString())}>Load More</button>
                     <button onClick={() => handleDelete()}>Delete</button>
                     <button onClick={() => handleAdmin()}>Set Admin</button>
                 </>
             )}
+
             <>
-                {displayUser ? (
+                {displayUser && (
                     <div className="display-overlay">
                         <User username={displayUser.username} email={displayUser.email} password={displayUser.password} id={displayUser.id} />
                         <button onClick={() => setDisplayUser(null)}>X</button>
                     </div>
-                ) : (
-                    null)}
+                )}
             </>
         </>
     )

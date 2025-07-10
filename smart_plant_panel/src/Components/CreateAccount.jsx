@@ -19,14 +19,18 @@ const CreateAccount = () => {
         let userNameOk = false
         let passwordOk = false
 
+
         // Check username
         if (!userName) {
             alert("Please enter a valid username")
+
         } else if (!/^[a-zA-Z0-9_]+$/.test(userName)) {
             alert("Username can contain only letters, numbers and underscores (_)")
+
         } else {
             userNameOk = true
         }
+
 
         // Check email
         if (!email) {
@@ -39,6 +43,7 @@ const CreateAccount = () => {
         } else {
             emailOk = true;
         }
+
 
         // Check password
         if (!password) {
@@ -53,6 +58,7 @@ const CreateAccount = () => {
             passwordOk = true;
         }
 
+
         // Sign up and login if parameters are ok
         if (userNameOk && passwordOk && emailOk) {
             const user = ({
@@ -66,17 +72,21 @@ const CreateAccount = () => {
 
             const { message, loginFlag } = await userSignUp({ user })
             alert(message)
+
             if (loginFlag) dispatch(LogIn(email, password))
         }
     }
+
 
     useEffect(() => {
         if (isLogged) navigate("/")
     }, [isLogged, navigate])
 
+
     return (
         <div>
             <h1>Create an account</h1>
+
             <form onSubmit={handleSubmit} id="login">
                 <label>
                     username: <br /><input
@@ -86,7 +96,9 @@ const CreateAccount = () => {
                         required
                     />
                 </label>
+
                 <br />
+
                 <label>
                     email: <br /><input
                         type="email"
@@ -95,7 +107,9 @@ const CreateAccount = () => {
                         required
                     />
                 </label>
+
                 <br />
+
                 <label>
                     password: <br /><input
                         type="password"
@@ -104,9 +118,13 @@ const CreateAccount = () => {
                         required
                     />
                 </label>
+
                 <br />
+
                 <button type="submit">Sign up</button>
+
             </form>
+
         </div>
     )
 }

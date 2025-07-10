@@ -5,14 +5,15 @@ import AddPlant from '../Components/AddPlant';
 import ManageUsers from '../Components/ManageUsers';
 import ManagePlants from '../Components/ManagePlants';
 
-
 const AdminDashboard = () => {
     const isAdmin = useSelector((state) => state.user.isAdmin);
     const [adminAction, setAdminAction] = useState("");
 
+
     const handleDropdownChange = (e) => {
         setAdminAction(e.target.value);
     }
+
 
     if (!isAdmin) {
         return (
@@ -23,6 +24,8 @@ const AdminDashboard = () => {
             </div>
         );
     }
+
+
     return (
         <div>
             <h1>Admin dashboard</h1>

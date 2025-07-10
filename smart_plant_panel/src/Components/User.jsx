@@ -9,6 +9,7 @@ const User = ({ username, email, password, id }) => {
         console.log(id)
     }
 
+
     return (
         <>
             <h1>{username}</h1>

@@ -12,11 +12,13 @@ const LoginComponent = () => {
     const [email, setEmail] = useState("");
     const [password, setpassword] = useState("");
 
+
     useEffect(() => {
         if (isLogged) {
             navigate("/");
         }
     }, [isLogged, navigate])
+
 
     // Handle form submission
     function HandleSubmit(e) {
@@ -60,10 +62,13 @@ const LoginComponent = () => {
 
     }
 
+
     return (
         <div>
             <h1>Login</h1>
+
             <form onSubmit={HandleSubmit} id="login">
+
                 <label>
                     email: <br /><input
                         type="email"
@@ -72,7 +77,9 @@ const LoginComponent = () => {
                         required
                     />
                 </label>
+
                 <br />
+
                 <label>
                     password: <br /><input
                         type="password"
@@ -81,9 +88,11 @@ const LoginComponent = () => {
                         required
                     />
                 </label>
+
                 <br />
                 <button type="submit">Login</button>
             </form>
+
         </div>
     );
 }

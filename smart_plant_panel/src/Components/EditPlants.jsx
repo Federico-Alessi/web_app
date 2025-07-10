@@ -9,6 +9,7 @@ const EditPlants = ({ plant, onFinishEditing }) => {
         setEditedPlant({ ...editedPlant, [name]: value })
     }
 
+
     const handleEditPlant = async (e) => {
         e.preventDefault()
         const response = await editPlant({ editedPlant })
@@ -16,9 +17,11 @@ const EditPlants = ({ plant, onFinishEditing }) => {
         onFinishEditing(editedPlant)
     }
 
+
     return (
         <>
             <button onClick={() => onFinishEditing(null)}>↩</button>
+
             <form onSubmit={handleEditPlant}>
                 <label>
                     Picture: <br />
@@ -29,6 +32,7 @@ const EditPlants = ({ plant, onFinishEditing }) => {
                         onChange={handleChange}
                     />
                 </label>
+
                 <label>
                     Plant Name: <br /><input
                         name="plantName"
@@ -37,7 +41,9 @@ const EditPlants = ({ plant, onFinishEditing }) => {
                         onChange={handleChange}
                         required />
                 </label>
+
                 <br />
+
                 <label>
                     Plant category: <br />
                     <select
@@ -51,7 +57,9 @@ const EditPlants = ({ plant, onFinishEditing }) => {
                         <option value="flower">Flower</option>
                     </select>
                 </label>
+
                 <br />
+
                 <label>
                     Plant Description: <br /><textarea
                         name="description"
@@ -60,7 +68,9 @@ const EditPlants = ({ plant, onFinishEditing }) => {
                         onChange={handleChange}
                         required />
                 </label>
+
                 <br></br>
+
                 <button type="submit">Save</button>
 
             </form>

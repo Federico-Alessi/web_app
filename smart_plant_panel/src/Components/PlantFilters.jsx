@@ -9,7 +9,10 @@ const PlantFilters = ({ setCategory, setName }) => {
             <label>
                 <input id="name-filter" value={nameValue} onChange={e => { setNameValue(e.target.value) }} placeholder="Search plant by name"></input>
             </label>
+
             <button id="search-btn" onClick={() => setName(nameValue)}>🔎</button>
+
+
             <label>
                 <select
                     id="category-filter"
@@ -22,6 +25,7 @@ const PlantFilters = ({ setCategory, setName }) => {
 
                 </select>
             </label>
+
             <BlankSpace />
         </div>
     )
