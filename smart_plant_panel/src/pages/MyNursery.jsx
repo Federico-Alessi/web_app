@@ -8,13 +8,14 @@ import PlantFilters from '../Components/PlantFilters'
 import { addToNursery } from '../redux/NurseryActions';
 import { getPlantById } from '../api/plantsApi';
 import { removeFromUserNursery } from '../api/usersApi';
+import { SpinnerRoundOutlined } from 'spinners-react';
 
 const MyNursery = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const userId = useSelector(state => state.user.id)
     const [selectedPlant, setSelectedPlant] = useState(null)
-    const [infoFlag, setInfoFlag] = useState(false) //flag for the alert
+    const [infoFlag, setInfoFlag] = useState(false)
     const [errorFlag, setErrorFlag] = useState(false)
     const [message, setMessage] = useState('')
     const myPlants = useSelector((state) => state.nursery.plants)
@@ -22,6 +23,8 @@ const MyNursery = () => {
     const [nameFilter, setNameFilter] = useState("")
     const [categoryFilter, setCategoryFilter] = useState("")
     const userNursery = useSelector(state => state.user.nursery)
+    const [loading, setLoading] = useState(false)
+
 
     // load plant in user's nursery if logged
     useEffect(() => {
@@ -33,9 +36,11 @@ const MyNursery = () => {
                 }
             }
         }
-
+        setLoading(true)
         userNurseryToLocal()
+        setLoading(false)
     }, [userNursery, dispatch])
+
 
     // filter plants
     useEffect(() => {
@@ -55,6 +60,8 @@ const MyNursery = () => {
 
     }, [categoryFilter, nameFilter, myPlants])
 
+
+    // remove plant from state nursery and user nursery
     const removeHandler = async () => {
         dispatch(removeFromNursery(selectedPlant))
 
@@ -76,6 +83,7 @@ const MyNursery = () => {
         }
     }
 
+
     return (
         <div>
             {infoFlag && <Alert severity='info' onClose={() => { setInfoFlag(false) }} id='alert'>{message}</Alert>}
@@ -85,6 +93,8 @@ const MyNursery = () => {
                 {myPlants.length > 0 ? (
                     <>
                         <PlantFilters setCategory={setCategoryFilter} setName={setNameFilter} />
+                        {loading && <SpinnerRoundOutlined />}
+                        {!loading &&
                         <table>
                             <thead>
                                 <tr>
@@ -117,6 +127,7 @@ const MyNursery = () => {
                                 ))}
                             </tbody>
                         </table>
+                        }
                         {selectedPlant &&
                             <div className="display-overlay">
                                 <Plant plant={selectedPlant} onExit={setSelectedPlant} />
