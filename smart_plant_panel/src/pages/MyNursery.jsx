@@ -71,7 +71,7 @@ const MyNursery = () => {
                 setMessage('The plant has been removed from your Nursery')
                 setSelectedPlant(null)
                 setInfoFlag(true)
-                setTimeout(() => { setInfoFlag(false) }, 500)
+                setTimeout(() => { setInfoFlag(false) }, 5000)
             }
         }
     }
