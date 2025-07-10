@@ -5,8 +5,13 @@ const EditPlants = ({ plant, onFinishEditing }) => {
     const [editedPlant, setEditedPlant] = useState({ ...plant })
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        setEditedPlant({ ...editedPlant, [name]: value })
+        const { name, value, type, files } = e.target
+
+        if (type == "file" && files[0]) {
+            //setEditPlant({...editedPlant, image: URL.createObjectURL(files[0]) })
+        } else {
+            setEditedPlant({ ...editedPlant, [name]: value })
+        }
     }
 
 

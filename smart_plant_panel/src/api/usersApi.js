@@ -78,7 +78,6 @@ export async function verifyLoggedUser({ username, rawPassword }) {
         const password = rawPassword.replace(/[^a-zA-Z0-9]/g, '')
         const response = await fetch(`http://localhost:5000/users?username=${username}&password=${password}`)
         const data = await response.json()
-        console.log(data)
 
         if (data.length > 0) {
             return true
