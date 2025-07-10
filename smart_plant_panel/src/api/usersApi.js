@@ -1,5 +1,6 @@
 export async function deleteUsers({ ids }) {
 
+    if (ids.length == 0) return 'No users selected'
     try {
         for (const id of ids) {
             const response = await fetch(`http://localhost:5000/users/${id}`, {
