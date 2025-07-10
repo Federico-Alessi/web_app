@@ -149,6 +149,12 @@ It doesn't provide any logic, allowing it to be used for both fetching plants an
 Plant is another basic component used to display a given plant object. It also features an exit button for the parent component to handle.
 
 
+## ManagePlants
+ManagePlants allows admins to edit or delete plants.
+
+For plant editing it conditionally displays the EditPlants component, while for plant deletion it uses `handleRemovePlant(e)`, which verifies the user, calls the `removePlant()` API function and reloads the fethed plants.
+
+
 ## CreateAccount
 An apparently simple component that takes input from a form, validates it, creates a new user object to use as the parameter for `userSignUp()`; if the account is successfully created, the LogIn dispatch occurs.
 
@@ -162,7 +168,11 @@ This component displays a table containg all the users from the database.
 
 Clicking on the user's id displays a pop-up containing some informations about the user, including a hidden password that can be displayed by clicking on '***'.
 
-Each user is selectable individually and a check box in the table header allows to select/uselect all the users. for selected users
+Each user is selectable individually and a check box in the table header allows to select/uselect all the users via the `handleSelectAll()` call; for selected users two actions are available: set admin and delete, handlet respectively by `handleAdmin()` and `handleDelete()`.
+
+
+## User
+The User component is used to display a given user's username, email and password. The id is used to display the account's creation date.
 
 
 
