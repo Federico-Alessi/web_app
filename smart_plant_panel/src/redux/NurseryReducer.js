@@ -17,6 +17,11 @@ const NurseryReducer = (state = initialState, action) => {
                 ...state,
                 plants: []
             }
+            case "LOGIN":
+                return {
+                    ...state,
+                    plants: []
+                }
         default:
             return state;
     }
