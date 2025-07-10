@@ -9,6 +9,7 @@ import { addToNursery } from '../redux/NurseryActions';
 import { getPlantById } from '../api/plantsApi';
 import { removeFromUserNursery } from '../api/usersApi';
 import { SpinnerRoundOutlined } from 'spinners-react';
+import { removeIdFromUsrNursery } from '../redux/LoginActions'
 
 const MyNursery = () => {
     const navigate = useNavigate()
@@ -28,17 +29,25 @@ const MyNursery = () => {
 
     // load plant in user's nursery if logged
     useEffect(() => {
+
         const userNurseryToLocal = async () => {
             if (userNursery) {
                 for (const plantId of userNursery) {
+
                     const plant = await getPlantById(plantId)
-                    dispatch(addToNursery(plant))
+
+                    if (plant) {
+                        dispatch(addToNursery(plant))
+                    } else {
+                        dispatch(removeIdFromUsrNursery({ plantId: plantId, userId: userId }))
+                    }
                 }
             }
         }
         setLoading(true)
         userNurseryToLocal()
         setLoading(false)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userNursery, dispatch])
 
 
@@ -48,12 +57,10 @@ const MyNursery = () => {
 
         if (categoryFilter.length > 0) {
             updatedPlants = updatedPlants.filter(plant => plant.category == categoryFilter)
-            console.log('changed ', myPlants.filter(plant => plant.category == categoryFilter))
         }
 
         if (nameFilter.length > 0) {
             updatedPlants = updatedPlants.filter(plant => plant.plantName.toLowerCase().includes(nameFilter.toLowerCase()))
-            console.log('filtered name')
         }
 
         setFilteredPlants(updatedPlants)

@@ -231,10 +231,7 @@
       "email": "test@gmail.com",
       "password": "test",
       "idAdmin": false,
-      "nursery": [
-        "1751403623050",
-        "1751409119999"
-      ]
+      "nursery": []
     },
     {
       "id": "1752150452362",
@@ -242,9 +239,7 @@
       "email": "test@test.com",
       "password": "test",
       "idAdmin": false,
-      "nursery": [
-        "1751408556210"
-      ]
+      "nursery": []
     }
   ]
 }

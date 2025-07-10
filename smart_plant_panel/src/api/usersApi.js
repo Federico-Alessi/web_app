@@ -65,6 +65,7 @@ export async function verifyLoggedUser({ username, rawPassword }) {
         const password = rawPassword.replace(/[^a-zA-Z0-9]/g, '')
         const response = await fetch(`http://localhost:5000/users?username=${username}&password=${password}`)
         const data = await response.json()
+        console.log(data)
         if (data.length > 0) {
             return true
         } else {
@@ -101,7 +102,7 @@ export async function removeFromUserNursery({ userId, plantId }) {
         const user = await currentState.json()
         const currentNursery = await user.nursery
         if (currentNursery.includes(plantId)) {
-            const updatedNursery = (currentNursery.filter (id => id != plantId))||[]
+            const updatedNursery = (currentNursery.filter(id => id != plantId)) || []
             const response = await fetch(`http://localhost:5000/users/${userId}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },

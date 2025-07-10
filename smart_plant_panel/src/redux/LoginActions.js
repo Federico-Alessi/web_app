@@ -1,8 +1,9 @@
+import { removeFromUserNursery } from "../api/usersApi"
 
 export const logOut = () => {
     return (dispatch) => {
-        dispatch({type: "LOGOUT"})
-        dispatch({type: "EMPTY"})
+        dispatch({ type: "LOGOUT" })
+        dispatch({ type: "EMPTY" })
     }
 }
 
@@ -21,4 +22,9 @@ export const LogIn = (email, password) => {
         }
 
     }
+}
+
+export const removeIdFromUsrNursery = ({ plantId, userId }) => {
+    removeFromUserNursery({ plantId: plantId, userId: userId })
+    return { type: "REMOVE-ID", payload: plantId }
 }

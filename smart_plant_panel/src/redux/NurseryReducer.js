@@ -10,18 +10,18 @@ const NurseryReducer = (state = initialState, action) => {
         case "REMOVE":
             return {
                 ...state,
-                plants: [...state.plants.filter(id => id != action.payload)]
+                plants: state.plants.filter(id => id != action.payload)
             }
         case "EMPTY":
             return {
                 ...state,
                 plants: []
             }
-            case "LOGIN":
-                return {
-                    ...state,
-                    plants: []
-                }
+        case "LOGIN":
+            return {
+                ...state,
+                plants: []
+            }
         default:
             return state;
     }

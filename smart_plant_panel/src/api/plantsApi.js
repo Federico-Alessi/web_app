@@ -53,11 +53,14 @@ export async function removePlant(plant) {
 }
 
 export async function getPlantById(plantId) {
+    if (!plantId) return null
+
     try {
         const response = await fetch(`http://localhost:5000/plants/${plantId}`)
         const plant = await response.json()
-        return plant
+        if (response.ok) return plant
+
     } catch {
-        console.log('error') 
+        return null
     }
 }

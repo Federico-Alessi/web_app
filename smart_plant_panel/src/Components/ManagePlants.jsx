@@ -16,7 +16,8 @@ const ManagePlants = () => {
 
     const handleRemovePlant = async (e) => {
         e.preventDefault()
-        const isVerified = await verifyLoggedUser({ username: username, password: password })
+        const isVerified = await verifyLoggedUser({ username: username, rawPassword: password })
+
         if (isVerified) {
             setConfirmationNeeded(false)
             const removal = await removePlant(selectedPlant)
