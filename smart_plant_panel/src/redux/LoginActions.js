@@ -1,6 +1,9 @@
 
 export const logOut = () => {
-    return { type: "LOGOUT" }
+    return (dispatch) => {
+        dispatch({type: "LOGOUT"})
+        dispatch({type: "EMPTY"})
+    }
 }
 
 export const LogIn = (email, password) => {

@@ -203,20 +203,32 @@
       "username": "federico",
       "email": "admin@admin.com",
       "password": "admin",
-      "isAdmin": true
+      "isAdmin": true,
+      "nursery": []
     },
     {
       "id": "2",
       "username": "pieropelu",
       "email": "user@user.com",
       "password": "user",
-      "isAdmin": false
+      "idAdmin": false,
+      "nursery": []
     },
     {
       "id": "1751975392645",
       "username": "franco_battiato",
       "email": "franco@ole.com",
-      "password": "sonofranco"
+      "password": "sonofranco",
+      "idAdmin": false,
+      "nursery": []
+    },
+    {
+      "id": "1752111513234",
+      "username": "test",
+      "email": "test@gmail.com",
+      "password": "test",
+      "idAdmin": false,
+      "nursery": []
     }
   ]
 }

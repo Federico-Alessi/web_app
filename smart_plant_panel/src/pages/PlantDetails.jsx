@@ -3,35 +3,51 @@ import Plant from "../Components/Plant"
 import { useGetPlants } from "../hooks/usePlants"
 import { SpinnerRoundOutlined } from "spinners-react"
 import BlankSpace from "../Components/BlankSpace"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addToNursery } from "../redux/NurseryActions"
 import { useState } from "react"
 import Alert from "@mui/material/Alert"
+import { addToUserNursery } from "../api/usersApi.js"
 
 const PlantDetails = () => {
     const navigate = useNavigate()
     const { plantId } = useParams()
     const { plants, loading } = useGetPlants({ id: plantId })
     const dispatch = useDispatch()
-    const [flag, setFlag] = useState(false)
+    const [infoFlag, setInfoFlag] = useState(false)
+    const [errorFlag, setErrorFlag] = useState(false)
     const [message, setMessage] = useState('')
+    const userId = useSelector(state => state.user.id)
 
-    const nurseryHandler = async () => {
+    // add plant to user and local nursery
+    const addHandler = async () => {
+
         const result = await dispatch(addToNursery(plants))
-        setMessage(result.message)
-        setFlag(true)
-        setTimeout(() => { setFlag(false) }, 5000)
+
+        if (userId) {
+            const userNursery = await addToUserNursery({ userId: userId, plantId: plantId })
+            setErrorFlag(!userNursery)
+            if (errorFlag) {
+                setMessage('Error while adding the plant to your personal database')
+                setTimeout(() => { setErrorFlag(false) }, 5000)
+            } else {
+                setMessage(result.message)
+                setInfoFlag(true)
+                setTimeout(() => { setInfoFlag(false) }, 5000)
+            }
+        }
     }
 
     return (
         <>
-            {flag ? <Alert severity='info'  onClose={() => { setFlag(false) }} id='alert'>{message}</Alert> : null}
+            {errorFlag && <Alert severity='error' onClose={() => { setErrorFlag(false) }} id='alert'>{message}</Alert>}
+            {infoFlag && <Alert severity='info' onClose={() => { setInfoFlag(false) }} id='alert'>{message}</Alert>}
             <BlankSpace />
             {loading && <SpinnerRoundOutlined />}
             {!loading && (
                 <>
                     <Plant plant={plants} onExit={() => navigate(-1) || navigate("/browse")} />
-                    <button onClick={nurseryHandler}>Add to Nursery</button>
+                    <button onClick={addHandler}>Add to Nursery</button>
                 </>
             )}
         </>

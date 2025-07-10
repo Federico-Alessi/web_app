@@ -65,7 +65,7 @@ export async function verifyLoggedUser({ username, rawPassword }) {
         const password = rawPassword.replace(/[^a-zA-Z0-9]/g, '')
         const response = await fetch(`http://localhost:5000/users?username=${username}&password=${password}`)
         const data = await response.json()
-        if (data.length > 0){
+        if (data.length > 0) {
             return true
         } else {
             return false
@@ -73,4 +73,46 @@ export async function verifyLoggedUser({ username, rawPassword }) {
     } catch {
         return false
     }
+}
+
+export async function addToUserNursery({ userId, plantId }) {
+    try {
+        const currentState = await fetch(`http://localhost:5000/users/${userId}`)
+        const user = await currentState.json()
+        const currentNursery = await user.nursery
+        if (!currentNursery.includes(plantId)) {
+            const updatedNursery = [...currentNursery, plantId]
+            const response = await fetch(`http://localhost:5000/users/${userId}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ nursery: updatedNursery })
+            })
+            if (!response.ok) return false
+        }
+    } catch {
+        return false
+    }
+    return true
+}
+
+export async function removeFromUserNursery({ userId, plantId }) {
+    try {
+        const currentState = await fetch(`http://localhost:5000/users/${userId}`)
+        const user = await currentState.json()
+        const currentNursery = await user.nursery
+        console.log(user.nursery, currentNursery)
+        if (currentNursery.includes(plantId)) {
+            const updatedNursery = (currentNursery.filter (id => id != plantId))||[]
+            const response = await fetch(`http://localhost:5000/users/${userId}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ nursery: updatedNursery })
+            })
+            console.log(currentNursery, updatedNursery)
+            if (!response.ok) return false
+        }
+    } catch {
+        return false
+    }
+    return true
 }

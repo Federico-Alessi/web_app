@@ -5,26 +5,48 @@ import { useNavigate } from 'react-router';
 import { removeFromNursery } from '../redux/NurseryActions';
 import Alert from '@mui/material/Alert';
 import PlantFilters from '../Components/PlantFilters'
+import { addToNursery } from '../redux/NurseryActions';
+import { getPlantById } from '../api/plantsApi';
+import { removeFromUserNursery } from '../api/usersApi';
 
 const MyNursery = () => {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const userId = useSelector(state => state.user.id)
     const [selectedPlant, setSelectedPlant] = useState(null)
-    const [flag, setFlag] = useState(false) //flag for the alert
+    const [infoFlag, setInfoFlag] = useState(false) //flag for the alert
+    const [errorFlag, setErrorFlag] = useState(false)
+    const [message, setMessage] = useState('')
     const myPlants = useSelector((state) => state.nursery.plants)
     const [filteredPlants, setFilteredPlants] = useState(myPlants)
     const [nameFilter, setNameFilter] = useState("")
     const [categoryFilter, setCategoryFilter] = useState("")
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const userNursery = useSelector(state => state.user.nursery)
 
+    // load plant in user's nursery if logged
+    useEffect(() => {
+        const userNurseryToLocal = async () => {
+            if (userNursery) {
+                for (const plantId of userNursery) {
+                    const plant = await getPlantById(plantId)
+                    dispatch(addToNursery(plant))
+                }
+            }
+        }
+
+        userNurseryToLocal()
+    }, [userNursery, dispatch])
+
+    // filter plants
     useEffect(() => {
         let updatedPlants = myPlants
 
-        if (categoryFilter.length>0) {
+        if (categoryFilter.length > 0) {
             updatedPlants = updatedPlants.filter(plant => plant.category == categoryFilter)
             console.log('changed ', myPlants.filter(plant => plant.category == categoryFilter))
         }
 
-        if (nameFilter.length>0) {
+        if (nameFilter.length > 0) {
             updatedPlants = updatedPlants.filter(plant => plant.plantName.toLowerCase().includes(nameFilter.toLowerCase()))
             console.log('filtered name')
         }
@@ -33,16 +55,31 @@ const MyNursery = () => {
 
     }, [categoryFilter, nameFilter, myPlants])
 
-    const removeHandler = () => {
+    const removeHandler = async () => {
         dispatch(removeFromNursery(selectedPlant))
-        setSelectedPlant(null)
-        setFlag(true)
-        setTimeout(() => { setFlag(false) }, 5000)
+
+        if (userId) {
+            const plantId = selectedPlant.id
+            const userNursery = await removeFromUserNursery({ userId: userId, plantId: plantId })
+            setErrorFlag(!userNursery)
+            if (errorFlag) {
+                console.log('error')
+                setMessage('Error while removing the plant from your personal database')
+                setTimeout(() => { setErrorFlag(false) }, 5000)
+            } else {
+                console.log('no error')
+                setMessage('The plant has been removed from your Nursery')
+                setSelectedPlant(null)
+                setInfoFlag(true)
+                setTimeout(() => { setInfoFlag(false) }, 500)
+            }
+        }
     }
 
     return (
         <div>
-            {flag && <Alert severity='info' id='alert' onClose={() => { setFlag(false) }}>Plant removed from nursery</Alert>}
+            {infoFlag && <Alert severity='info' onClose={() => { setInfoFlag(false) }} id='alert'>{message}</Alert>}
+            {errorFlag && <Alert severity='error' onClose={() => { setErrorFlag(false) }} id='alert'>{message}</Alert>}
             <h1>Nursery</h1>
             <>
                 {myPlants.length > 0 ? (

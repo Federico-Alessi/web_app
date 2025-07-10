@@ -51,3 +51,13 @@ export async function removePlant(plant) {
         return "Error while connecting to the database"
     }
 }
+
+export async function getPlantById(plantId) {
+    try {
+        const response = await fetch(`http://localhost:5000/plants/${plantId}`)
+        const plant = await response.json()
+        return plant
+    } catch {
+        console.log('error') 
+    }
+}

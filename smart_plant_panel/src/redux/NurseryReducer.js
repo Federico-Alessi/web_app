@@ -12,6 +12,11 @@ const NurseryReducer = (state = initialState, action) => {
                 ...state,
                 plants: [...state.plants.filter(id => id != action.payload)]
             }
+        case "EMPTY":
+            return {
+                ...state,
+                plants: []
+            }
         default:
             return state;
     }

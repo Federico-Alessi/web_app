@@ -10,6 +10,10 @@ const Navbar = () => {
   const isAdmin = useSelector((state) => state.user.isAdmin);
   const isLogged = useSelector((state) => state.user.username);
 
+  const handleLogout = () => {
+    dispatch(logOut());
+  }
+
   return (
     <header>
       <div>
@@ -30,22 +34,14 @@ const Navbar = () => {
       )}
       {isLogged && (
         <div>
-          <button
-            onClick={() => {
-              dispatch(logOut());
-            }}
-          >
+          <button onClick={handleLogout}>
             Logout
           </button>
         </div>
       )}
       {!isLogged && (
         <div>
-          <button
-            onClick={() => {
-              navigate("/login");
-            }}
-          >
+          <button onClick={() => { navigate("/login"); }}>
             Login
           </button>
         </div>

@@ -59,7 +59,9 @@ const CreateAccount = () => {
                 id: Date.now().toString(),
                 username: userName,
                 email: email,
-                password: password
+                password: password,
+                idAdmin: false,
+                nursery: []
             })
 
             const { message, loginFlag } = await userSignUp({ user })
