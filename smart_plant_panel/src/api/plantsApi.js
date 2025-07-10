@@ -58,7 +58,7 @@ export async function removePlant(plant) {
         if (response.ok) {
             return "Plant removed from database"
         }
-        
+
     } catch {
         return "Error while connecting to the database"
     }
@@ -76,4 +76,6 @@ export async function getPlantById(plantId) {
     } catch {
         return null
     }
+
+    return null
 }
