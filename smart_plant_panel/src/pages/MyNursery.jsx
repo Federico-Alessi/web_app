@@ -70,16 +70,15 @@ const MyNursery = () => {
             const userNursery = await removeFromUserNursery({ userId: userId, plantId: plantId })
             setErrorFlag(!userNursery)
             if (errorFlag) {
-                console.log('error')
                 setMessage('Error while removing the plant from your personal database')
                 setTimeout(() => { setErrorFlag(false) }, 5000)
-            } else {
-                console.log('no error')
-                setMessage('The plant has been removed from your Nursery')
-                setSelectedPlant(null)
-                setInfoFlag(true)
-                setTimeout(() => { setInfoFlag(false) }, 5000)
             }
+        }
+        if (!errorFlag) {
+            setMessage('The plant has been removed from your Nursery')
+            setSelectedPlant(null)
+            setInfoFlag(true)
+            setTimeout(() => { setInfoFlag(false) }, 5000)
         }
     }
 
@@ -95,38 +94,38 @@ const MyNursery = () => {
                         <PlantFilters setCategory={setCategoryFilter} setName={setNameFilter} />
                         {loading && <SpinnerRoundOutlined />}
                         {!loading &&
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th style={{ width: "20%" }}>Name</th>
-                                    <th style={{ width: "20%" }}>Category</th>
-                                    <th style={{ width: "50%" }}>Description</th>
-                                    <th style={{ width: "10%" }}>Show</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {filteredPlants.map((plant) => (
-                                    <tr key={plant.id}>
-                                        <td>
-                                            <p>{plant.plantName}</p>
-                                        </td>
-                                        <td>
-                                            <p>{plant.category}</p>
-                                        </td>
-                                        <td style={{ width: "60%" }}>
-                                            <p style={{
-                                                whiteSpace: "nowrap",
-                                                overflow: "hidden",
-                                                textOverflow: "ellipsis",
-                                                width: "100%",
-                                                margin: 0
-                                            }}>{plant.description}</p>
-                                        </td>
-                                        <td><button onClick={() => setSelectedPlant(plant)}>👁️</button></td>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style={{ width: "20%" }}>Name</th>
+                                        <th style={{ width: "20%" }}>Category</th>
+                                        <th style={{ width: "50%" }}>Description</th>
+                                        <th style={{ width: "10%" }}>Show</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {filteredPlants.map((plant) => (
+                                        <tr key={plant.id}>
+                                            <td>
+                                                <p>{plant.plantName}</p>
+                                            </td>
+                                            <td>
+                                                <p>{plant.category}</p>
+                                            </td>
+                                            <td style={{ width: "60%" }}>
+                                                <p style={{
+                                                    whiteSpace: "nowrap",
+                                                    overflow: "hidden",
+                                                    textOverflow: "ellipsis",
+                                                    width: "100%",
+                                                    margin: 0
+                                                }}>{plant.description}</p>
+                                            </td>
+                                            <td><button onClick={() => setSelectedPlant(plant)}>👁️</button></td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         }
                         {selectedPlant &&
                             <div className="display-overlay">

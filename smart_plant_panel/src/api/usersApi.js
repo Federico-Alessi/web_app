@@ -100,7 +100,6 @@ export async function removeFromUserNursery({ userId, plantId }) {
         const currentState = await fetch(`http://localhost:5000/users/${userId}`)
         const user = await currentState.json()
         const currentNursery = await user.nursery
-        console.log(user.nursery, currentNursery)
         if (currentNursery.includes(plantId)) {
             const updatedNursery = (currentNursery.filter (id => id != plantId))||[]
             const response = await fetch(`http://localhost:5000/users/${userId}`, {
@@ -108,7 +107,6 @@ export async function removeFromUserNursery({ userId, plantId }) {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ nursery: updatedNursery })
             })
-            console.log(currentNursery, updatedNursery)
             if (!response.ok) return false
         }
     } catch {

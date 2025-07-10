@@ -1,4 +1,3 @@
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { Routes, Route } from "react-router";
 import Home from "./pages/Home";
@@ -21,7 +20,6 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/" element={<Home />}></Route>
             <Route path="/nursery" element={<MyNursery />}></Route>
-            <Route path="/browse" element={<BrowsePlants />}></Route>
             <Route path="/admin" element={<AdminDashboard />}></Route>
             <Route path="/browse/:plantId" element={<PlantDetails />}></Route>
           </Route>

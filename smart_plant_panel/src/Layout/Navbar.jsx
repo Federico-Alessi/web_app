@@ -24,9 +24,6 @@ const Navbar = () => {
       <div>
         <NavLink to="/nursery">My Nursery</NavLink>
       </div>
-      <div>
-        <NavLink to="/browse">Browse Plants</NavLink>
-      </div>
       {isAdmin && (
         <div>
           <NavLink to="/admin">Admin</NavLink>

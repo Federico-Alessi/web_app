@@ -235,6 +235,14 @@
         "1751403623050",
         "1751409119999"
       ]
+    },
+    {
+      "id": "1752150452362",
+      "username": "test",
+      "email": "test@test.com",
+      "password": "test",
+      "idAdmin": false,
+      "nursery": []
     }
   ]
 }

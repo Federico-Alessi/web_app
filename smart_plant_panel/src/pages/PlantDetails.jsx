@@ -30,11 +30,12 @@ const PlantDetails = () => {
             if (errorFlag) {
                 setMessage('Error while adding the plant to your personal database')
                 setTimeout(() => { setErrorFlag(false) }, 5000)
-            } else {
-                setMessage(result.message)
-                setInfoFlag(true)
-                setTimeout(() => { setInfoFlag(false) }, 5000)
             }
+        }
+        if (!errorFlag) {
+            setMessage(result.message)
+            setInfoFlag(true)
+            setTimeout(() => { setInfoFlag(false) }, 5000)
         }
     }
 
