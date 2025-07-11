@@ -1,6 +1,9 @@
 # SmartPlantPanel™
 
 
+> Before using the web app, run `npm run dev` in the `../smart_plant_panel` and `../smart_plant_panel` directories.
+
+
 ## intro
 SmartPlantPanel is a simple plant database that allows plant parents to look at every info they need to take care of their plants.
 
@@ -75,7 +78,7 @@ Unfortunately the database itself is a mock Json db, so images can't actually be
 ### Manage plants
 Here you can see the whole plants database, but this time, when clicking on '👁️', you will see a pop-up with two buttons:
 - **Edit Plant** allows to modify the plant. this changes will be available on the database as soon as submitting the changes, and users will be able to see them after reloading the component showing it.
-- 🗑️ allows to delete the plant. Before the plant will be deleted a popup will ask for your password for confirmation.
+- 🗑️ allows to delete the plant. Before the plant will be deleted a popup will ask for your password for confirmation. If a user has the deleted plant in his personal nursery, the plant will be automatically deleted on the next component reload.
 
 
 ### Manage users
