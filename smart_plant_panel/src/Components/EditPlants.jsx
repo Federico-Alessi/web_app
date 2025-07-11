@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { editPlant } from "../api/plantsApi";
+import BlankSpace from "./BlankSpace";
 
 const EditPlants = ({ plant, onFinishEditing }) => {
     const [editedPlant, setEditedPlant] = useState({ ...plant })
@@ -74,7 +75,7 @@ const EditPlants = ({ plant, onFinishEditing }) => {
                         required />
                 </label>
 
-                <br></br>
+                <BlankSpace />
 
                 <button type="submit">Save</button>
 

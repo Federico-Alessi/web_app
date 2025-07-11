@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { addPlant } from "../api/plantsApi";
+import BlankSpace from "./BlankSpace";
 
 
 const AddPlant = () => {
@@ -89,7 +90,7 @@ const AddPlant = () => {
                     required />
             </label>
 
-            <br></br>
+            <BlankSpace />
 
             <button type="submit">Add</button>
 
