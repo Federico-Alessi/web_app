@@ -53,7 +53,7 @@ const PlantDetails = () => {
             {loading && <SpinnerRoundOutlined />}
             {!loading && (
                 <>
-                    <Plant plant={plants} onExit={() => navigate(-1) || navigate("/browse")} />
+                    <Plant plant={plants} onExit={() => navigate(-1) || navigate("/")} />
                     <button onClick={addHandler}>Add to Nursery</button>
                 </>
             )}
