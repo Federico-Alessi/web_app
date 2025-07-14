@@ -210,14 +210,6 @@
       ]
     },
     {
-      "id": "2",
-      "username": "pieropelu",
-      "email": "user@user.com",
-      "password": "user",
-      "idAdmin": false,
-      "nursery": []
-    },
-    {
       "id": "1751975392645",
       "username": "franco_battiato",
       "email": "franco@ole.com",
@@ -248,6 +240,18 @@
       "password": "hello",
       "idAdmin": false,
       "nursery": []
+    },
+    {
+      "id": "1752500737465",
+      "username": "Fabio",
+      "email": "fabio@yahoo.com",
+      "password": "Fabio",
+      "idAdmin": false,
+      "nursery": [
+        "1751409200001",
+        "1751409115555"
+      ],
+      "isAdmin": true
     }
   ]
 }

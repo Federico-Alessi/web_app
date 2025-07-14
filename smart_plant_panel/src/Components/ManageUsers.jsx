@@ -42,7 +42,7 @@ const ManageUsers = () => {
         } else {
             alert(deletion)
         }
-
+        setSelectedUsers([])
         setReloadFlag(reloadFlag => !reloadFlag)
     }
 
