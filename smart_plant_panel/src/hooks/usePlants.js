@@ -4,9 +4,11 @@ export function useGetPlants({ id, category, plantName, limit, reloadTrigger = n
     const [plants, setPlants] = useState([])
     const [loading, setLoading] = useState(false)
 
+
     useEffect(() => {
         const controller = new AbortController()
         const signal = controller.signal
+        //DELETE BEFORE DEPLOY
         let timeout
 
         const fetchPlantsData = async () => {
@@ -14,6 +16,7 @@ export function useGetPlants({ id, category, plantName, limit, reloadTrigger = n
 
             let url = `http://localhost:5000/plants`
 
+            //use single id or filters
             if (id) {
                 url += `/${id}`
 
@@ -23,17 +26,18 @@ export function useGetPlants({ id, category, plantName, limit, reloadTrigger = n
                 if (plantName) url += `&plantName_like=${plantName}`
             }
 
-
+            //fetch
             try {
                 const response = await fetch(url, { signal });
                 const result = await response.json();
                 setPlants(result);
 
             } catch (e) {
-                if (e.name != 'AbortError')
-                alert('Database not available')
-
+                if (e.name != 'AbortError') {
+                    alert('Database not available')
+                }
             } finally {
+                //DELETE TIMEOUT BEFORE DEPLOY
                 timeout = setTimeout(() => setLoading(false), 700);
             }
         };
@@ -41,7 +45,7 @@ export function useGetPlants({ id, category, plantName, limit, reloadTrigger = n
         fetchPlantsData();
 
         return () => {
-            clearTimeout(timeout) //clean timeout
+            clearTimeout(timeout) //clean timeout, DELETE BEFORE DEPLOY
             controller.abort() //abort fetch
         }
 
