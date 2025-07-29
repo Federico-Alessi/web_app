@@ -10,6 +10,7 @@ import { getPlantById } from '../api/plantsApi';
 import { removeFromUserNursery } from '../api/usersApi';
 import { SpinnerRoundOutlined } from 'spinners-react';
 import { removeIdFromUsrNursery } from '../redux/LoginActions'
+import AutoAlert from '../Components/AutoAlert';
 
 
 const MyNursery = () => {
@@ -17,9 +18,8 @@ const MyNursery = () => {
     const dispatch = useDispatch()
     const userId = useSelector(state => state.user.id)
     const [selectedPlant, setSelectedPlant] = useState(null)
-    const [infoFlag, setInfoFlag] = useState(false)
-    const [errorFlag, setErrorFlag] = useState(false)
     const [message, setMessage] = useState('')
+    const [alertSeverity, setAlertSeverity] = useState(null)
     const myPlants = useSelector((state) => state.nursery.plants)
     const [filteredPlants, setFilteredPlants] = useState(myPlants)
     const [nameFilter, setNameFilter] = useState("")
@@ -74,25 +74,26 @@ const MyNursery = () => {
         if (userId) {
             const plantId = selectedPlant.id
             const userNursery = await removeFromUserNursery({ userId: userId, plantId: plantId })
-            setErrorFlag(!userNursery)
-            if (errorFlag) {
+            //setErrorFlag(!userNursery)
+            setAlertSeverity(!userNursery ? 'error' : null)
+            if (!userNursery) {
                 setMessage('Error while removing the plant from your personal database')
-                setTimeout(() => { setErrorFlag(false) }, 5000)
+                setTimeout(() => { setAlertSeverity(null) }, 5000)
             }
         }
-        if (!errorFlag) {
-            setMessage('The plant has been removed from your Nursery')
+        if (alertSeverity != 'error') {
             setSelectedPlant(null)
-            setInfoFlag(true)
-            setTimeout(() => { setInfoFlag(false) }, 5000)
+            setMessage('The plant has been removed from your Nursery')
+            setAlertSeverity('success')
+            //setInfoFlag(true)
+            setTimeout(() => { setAlertSeverity(null) }, 5000)
         }
     }
 
 
     return (
         <div>
-            {infoFlag && <Alert severity='info' onClose={() => { setInfoFlag(false) }} id='alert'>{message}</Alert>}
-            {errorFlag && <Alert severity='error' onClose={() => { setErrorFlag(false) }} id='alert'>{message}</Alert>}
+            <AutoAlert severity={alertSeverity} message={message} close={setAlertSeverity} />
 
 
             <h1>Nursery</h1>

@@ -41,11 +41,14 @@ const LoginReducer = (state = initialState, action) => {
                 nursery: state.nursery.filter(plantId => plantId != action.payload)
             }
 
-        case "ADD":
+        case "ADD": {
+            if (state.nursery.includes(action.payload.id)) return state
+            
             return {
                 ...state,
                 nursery: [...state.nursery, action.payload.id],
             }
+        }
 
         default:
             return state;
