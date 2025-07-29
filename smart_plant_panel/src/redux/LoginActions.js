@@ -29,6 +29,14 @@ export const LogIn = (email, password) => {
 
 
 export const removeIdFromUsrNursery = ({ plantId, userId }) => {
-    removeFromUserNursery({ plantId: plantId, userId: userId })
-    return { type: "REMOVE-ID", payload: plantId }
+    return async dispatch => {
+
+        const response = removeFromUserNursery({ plantId: plantId, userId: userId })
+        
+        if (response) {
+            dispatch({ type: "REMOVE-ID", payload: plantId })
+        } else {
+            alert('something went Wrong')
+        }
+    }
 }
