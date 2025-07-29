@@ -5,6 +5,10 @@ export function useGetPlants({ id, category, plantName, limit, reloadTrigger = n
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        const controller = new AbortController()
+        const signal = controller.signal
+        let timeout
+
         const fetchPlantsData = async () => {
             setLoading(true)
 
@@ -21,19 +25,26 @@ export function useGetPlants({ id, category, plantName, limit, reloadTrigger = n
 
 
             try {
-                const response = await fetch(url);
+                const response = await fetch(url, { signal });
                 const result = await response.json();
                 setPlants(result);
 
-            } catch {
+            } catch (e) {
+                if (e.name != 'AbortError')
                 alert('Database not available')
-            } finally {
 
-                setTimeout(() => setLoading(false), 700);
+            } finally {
+                timeout = setTimeout(() => setLoading(false), 700);
             }
         };
 
         fetchPlantsData();
+
+        return () => {
+            clearTimeout(timeout) //clean timeout
+            controller.abort() //abort fetch
+        }
+
     }, [category, plantName, limit, reloadTrigger, id]);
 
 
