@@ -8,45 +8,44 @@ import { addToNursery } from "../redux/NurseryActions"
 import { useState } from "react"
 import Alert from "@mui/material/Alert"
 import { addToUserNursery } from "../api/usersApi.js"
+import AutoAlert from "../Components/AutoAlert.jsx"
 
 const PlantDetails = () => {
     const navigate = useNavigate()
     const { plantId } = useParams()
     const { plants, loading } = useGetPlants({ id: plantId })
     const dispatch = useDispatch()
-    const [infoFlag, setInfoFlag] = useState(false)
-    const [errorFlag, setErrorFlag] = useState(false)
     const [message, setMessage] = useState('')
+    const [alertSeverity, setAlertSeverity] = useState(null)
     const userId = useSelector(state => state.user.id)
 
 
     // add plant to user and local nursery
     const addHandler = async () => {
+        const result = await dispatch(addToNursery(plants)) //add to store nursery
 
-        const result = await dispatch(addToNursery(plants))
-
+        // add to user's nursery if logged
         if (userId) {
-            const userNursery = await addToUserNursery({ userId: userId, plantId: plantId })
-            setErrorFlag(!userNursery)
+            const added = await addToUserNursery({ userId: userId, plantId: plantId })
+            setAlertSeverity(!added ? 'error' : null)
 
-            if (errorFlag) {
+            if (!added) {
                 setMessage('Error while adding the plant to your personal database')
-                setTimeout(() => { setErrorFlag(false) }, 5000)
+                setTimeout(() => { setAlertSeverity(null) }, 5000)
             }
         }
 
-        if (!errorFlag) {
+        if (alertSeverity != 'error') {
+            setAlertSeverity(result.ok ? 'success' : 'info')
             setMessage(result.message)
-            setInfoFlag(true)
-            setTimeout(() => { setInfoFlag(false) }, 5000)
+            setTimeout(() => { setAlertSeverity(null) }, 5000)
         }
     }
 
 
     return (
         <>
-            {errorFlag && <Alert severity='error' onClose={() => { setErrorFlag(false) }} id='alert'>{message}</Alert>}
-            {infoFlag && <Alert severity='info' onClose={() => { setInfoFlag(false) }} id='alert'>{message}</Alert>}
+            <AutoAlert severity={alertSeverity} message={message} close={setAlertSeverity} />
 
             <BlankSpace />
 

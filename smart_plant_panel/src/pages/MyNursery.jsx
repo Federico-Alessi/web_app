@@ -69,8 +69,9 @@ const MyNursery = () => {
 
     // remove plant from state nursery and user nursery
     const removeHandler = async () => {
-        dispatch(removeFromNursery(selectedPlant))
+        dispatch(removeFromNursery(selectedPlant)) //remove from store nursery
 
+        // remove from user's nursery if logged
         if (userId) {
             const plantId = selectedPlant.id
             const userNursery = await removeFromUserNursery({ userId: userId, plantId: plantId })
@@ -81,6 +82,7 @@ const MyNursery = () => {
                 setTimeout(() => { setAlertSeverity(null) }, 5000)
             }
         }
+
         if (alertSeverity != 'error') {
             setSelectedPlant(null)
             setMessage('The plant has been removed from your Nursery')
