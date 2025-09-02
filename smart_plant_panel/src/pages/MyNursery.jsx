@@ -76,11 +76,10 @@ const MyNursery = () => {
             const plantId = selectedPlant.id
             const userNursery = await removeFromUserNursery({ userId: userId, plantId: plantId })
             //setErrorFlag(!userNursery)
-            setAlertSeverity(!userNursery ? 'error' : null)
             if (!userNursery) {
                 setMessage('Error while removing the plant from your personal database')
-                setTimeout(() => { setAlertSeverity(null) }, 5000)
             }
+            setAlertSeverity(!userNursery ? 'error' : null)
         }
 
         if (alertSeverity != 'error') {
@@ -88,8 +87,9 @@ const MyNursery = () => {
             setMessage('The plant has been removed from your Nursery')
             setAlertSeverity('success')
             //setInfoFlag(true)
-            setTimeout(() => { setAlertSeverity(null) }, 5000)
         }
+
+        setTimeout(() => { setAlertSeverity(null) }, 5000)
     }
 
 
