@@ -31,15 +31,15 @@ const PlantDetails = () => {
 
             if (!added) {
                 setMessage('Error while adding the plant to your personal database')
-                setTimeout(() => { setAlertSeverity(null) }, 5000)
             }
         }
 
         if (alertSeverity != 'error') {
             setAlertSeverity(result.ok ? 'success' : 'info')
             setMessage(result.message)
-            setTimeout(() => { setAlertSeverity(null) }, 5000)
         }
+        
+        setTimeout(() => { setAlertSeverity(null) }, 5000)
     }
 
 
