@@ -16,7 +16,7 @@ SmartPlantPanel™ offers 3 account types:
 |User      |
 |Admin     |
 
-Each account has access to different functionalities; continue reading to know more!
+Each account has access to different functionalities.
 
 
 
@@ -136,9 +136,9 @@ EditPlants features a form identical to the one from AddPlant, but it's values a
 
 
 ## FetchPlants
-This is one of the most important components: it is responsible for fetching the plants from the database; can accept a trigger parameter to be passed to the `useGetPlants` hook call.
+This is one of the most important components: it is responsible for fetching the plants from the database; It can accept a trigger parameter to be passed to the `useGetPlants` hook call.
 
-plants and loading are taken by destructuring the `useGetPlants` return values; furthermore, FetchPlants applies filters to the `useGetPlants` call thanks to the `PlantFilters` component.
+`plants` and `loading` are taken by destructuring the `useGetPlants` return values; furthermore, FetchPlants applies filters to the `useGetPlants` call thanks to the `PlantFilters` component.
 
 Finally, FetchPlants returns a table containing all the fetched plants together with the '👁️' button, passing the responsibility of handle it to the parent component through the `onSelectPlant`.
 
